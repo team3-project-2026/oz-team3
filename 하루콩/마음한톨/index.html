@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마음한톨 | GNB 완성 & 실습 템플릿</title>
+<style>
+  /* 🎨 공통 스타일 및 변수 */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --green: #78a75a; --deep: #476b43; --light: #edf6e6;
+    --cream: #fffcf5; --pink: #fff0ed; --ink: #53483f;
+    --muted: #8b8176; --line: #ebe5d9;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; background: var(--cream); color: var(--ink); line-height: 1.7; }
+  a { text-decoration: none; color: inherit; }
+  button { font: inherit; cursor: pointer; }
+  .container { width: min(1080px, 92%); margin: auto; }
+  .section { padding: 85px 0; }
+  .section.soft { background: #f7f9ee; }
+  .section.pink { background: #fff6f3; }
+
+  /* ==========================================
+     [완성된 GNB(Header) 스타일]
+     ========================================== */
+  .header { position: sticky; top: 0; z-index: 50; background: #fffdf8ed; backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .header-inner { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .logo { font-size: 26px; font-weight: 900; color: #695444; white-space: nowrap; }
+  .logo span { color: var(--green); }
+  .nav { display: flex; align-items: center; gap: 26px; font-size: 14px; font-weight: bold; color: #756d61; }
+  .nav a:hover { color: var(--green); }
+  .nav-start { background: var(--green); color: white !important; padding: 10px 20px; border-radius: 30px; }
+
+  /* 💡 실습용 가이드 박스 디자인 */
+  .practice-box {
+    border: 2px dashed #a7cc6c;
+    background: #f7f9ee;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    color: #53483f;
+    margin: 20px 0;
+  }
+  .practice-box h3 { color: var(--deep); margin-bottom: 10px; font-size: 20px; }
+  .practice-box p { font-size: 14px; color: #8b8176; }
+
+  @media(max-width:800px) {
+    .nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ==========================================
+     [완료된 GNB 파트] Header & Navigation
+     ========================================== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">🌱 마음<span>한톨</span></a>
+      <nav class="nav">
+        <a href="#about">서비스 소개</a>
+        <a href="#questions">나를 아는 시간</a>
+        <a href="#routines">맞춤 루틴</a>
+        <a href="#growth">나의 성장</a>
+        <a href="self.html" class="nav-start">시작하기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================
+       [팀원 1 실습 구역] Hero & Stats
+       ========================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="practice-box">
+          <h3>[팀원 1] Hero & Stats 영역</h3>
+          <p>여기에 메인 비주얼(캐릭터 '톨이' 포함)과 상단 통계 바 코드를 직접 작성해 보세요!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+       [팀원 2 실습 구역] About 섹션
+       ========================================== -->
+    <section class="section soft" id="about">
+      <div class="container">
+        <div class="practice-box">
+          <h3>[팀원 2] About (서비스 소개) 영역</h3>
+          <p>여기에 서비스 소개 4단계 카드(STEP 01 ~ 04) 코드를 직접 작성해 보세요!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+       [팀원 3 실습 구역] Question 섹션
+       ========================================== -->
+    <section class="section" id="questions">
+      <div class="container">
+        <div class="practice-box">
+          <h3>[팀원 3] Question (문답 미리보기) 영역</h3>
+          <p>여기에 질문 인트로와 문답 카드 미리보기 코드를 직접 작성해 보세요!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+       [팀원 4 실습 구역] Routine 섹션
+       ========================================== -->
+    <section class="section soft" id="routines">
+      <div class="container">
+        <div class="practice-box">
+          <h3>[팀원 4] Routine (맞춤 루틴) 영역</h3>
+          <p>여기에 카테고리 버튼, 루틴 카드, 그리고 관련 자바스크립트 인터랙션 코드를 직접 작성해 보세요!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+       [팀원 5 실습 구역] Growth 섹션
+       ========================================== -->
+    <section class="section" id="growth">
+      <div class="container">
+        <div class="practice-box">
+          <h3>[팀원 5] Growth (콩병 성장 비주얼) 영역</h3>
+          <p>여기에 콩병 및 성장 단계 시각화 코드와 데이터 연동 로직을 작성해 보세요!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 하단 CTA 섹션 -->
+    <section class="section pink">
+      <div class="container">
+        <div class="practice-box" style="background: #fff6f3; border-color: #ef9e9e;">
+          <h3>[팀원 5] Finish (하단 시작하기 배너) 영역</h3>
+          <p>여기에 하단 시작하기 CTA 배너 코드를 직접 작성해 보세요!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 영역 -->
+  <footer class="footer">
+    <div class="container" style="padding: 20px 0; text-align: center; color: #999084; font-size: 12px;">
+      <p>[팀원 5] 푸터 영역 코드를 여기에 작성해 보세요.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
