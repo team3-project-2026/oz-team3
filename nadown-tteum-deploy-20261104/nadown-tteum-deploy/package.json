@@ -1,0 +1,9 @@
+{
+  "name": "nadown-haru",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/core.test.js",
+    "start": "node server.mjs"
+  }
+}
