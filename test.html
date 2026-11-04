@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마음한톨 | 내 마음을 알아가는 시간</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --green:#78a75a; --deep:#476b43; --light:#edf6e6;
+  --cream:#fffcf5; --pink:#fff0ed; --ink:#53483f;
+  --muted:#8b8176; --line:#ebe5d9;
+}
+html { scroll-behavior:smooth; }
+body { font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif; background:var(--cream); color:var(--ink); line-height:1.7; }
+a { text-decoration:none; color:inherit; }
+button { font:inherit; cursor:pointer; }
+.container { width:min(1080px,92%); margin:auto; }
+.header { position:sticky; top:0; z-index:50; background:#fffdf8ed; backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+.header-inner { min-height:74px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.logo { font-size:26px; font-weight:900; color:#695444; white-space:nowrap; }
+.logo span { color:var(--green); }
+.nav { display:flex; align-items:center; gap:26px; font-size:14px; font-weight:bold; color:#756d61; }
+.nav a:hover { color:var(--green); }
+.nav-start { background:var(--green); color:white!important; padding:10px 20px; border-radius:30px; }
+.hero { background:radial-gradient(circle at 80% 20%,#f5e2dd 0,transparent 38%),linear-gradient(135deg,#fff5ed,#f6f9e9); overflow:hidden; }
+.hero-inner { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:45px; min-height:580px; padding:65px 0; }
+.tag { display:inline-block; padding:8px 18px; background:#fff; border-radius:30px; color:#8a8865; font-size:13px; font-weight:bold; margin-bottom:22px; }
+.hero h1 { font-size:clamp(35px,4.5vw,55px); line-height:1.35; letter-spacing:-2px; margin-bottom:22px; }
+.hero h1 strong { color:var(--deep); }
+.hero-text { color:#80766d; font-size:16px; line-height:1.95; }
+.hero-buttons { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:52px; padding:12px 24px; border-radius:40px; font-size:14px; font-weight:800; border:none; transition:.2s; }
+.btn-primary { background:linear-gradient(135deg,#93bb64,#5b9b4b); color:white; box-shadow:0 8px 18px #719b6033; }
+.btn-primary:hover { transform:translateY(-3px); }
+.btn-secondary { background:white; color:var(--deep); border:1px solid #d9e6cc; }
+.hero-visual { position:relative; background:#ffffffb8; border:1px solid #f1e9da; border-radius:35px; min-height:420px; padding:25px; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 20px 45px #8c78551c; }
+.speech { background:#fff6e7; padding:15px 25px; border-radius:22px; font-size:19px; font-weight:900; color:#655144; text-align:center; margin-bottom:20px; }
+.speech small { display:block; font-size:12px; color:#9c937f; font-weight:normal; margin-top:3px; }
+.toli { width:165px; height:165px; position:relative; animation:bob 2.7s ease-in-out infinite; }
+.toli-body { position:absolute; width:148px; height:128px; bottom:5px; left:8px; background:linear-gradient(#fff8df,#ffe7cc); border:4px solid #82694d; border-radius:53% 53% 45% 45%; box-shadow:0 9px 0 #c8db9c; }
+.toli .stem { position:absolute; width:9px; height:49px; left:78px; top:0; background:#779f4c; border-radius:10px; }
+.toli .leaf { position:absolute; top:2px; width:49px; height:34px; background:#a7cc6c; border:3px solid #6c9345; }
+.toli .leaf.left { left:30px; border-radius:90% 10% 90% 10%; transform:rotate(20deg); }
+.toli .leaf.right { right:27px; border-radius:10% 90% 10% 90%; transform:rotate(-20deg); }
+.eye { position:absolute; width:11px; height:13px; background:#5c4337; border-radius:50%; top:57px; }
+.eye.left { left:42px; }
+.eye.right { right:42px; }
+.cheek { position:absolute; top:78px; width:26px; height:14px; border-radius:50%; background:#f6b1ac; }
+.cheek.left { left:20px; }
+.cheek.right { right:20px; }
+.mouth { position:absolute; width:17px; height:14px; left:62px; top:75px; border-bottom:4px solid #86564a; border-radius:0 0 50% 50%; }
+.hand { position:absolute; bottom:15px; width:30px; height:23px; background:#fff0d9; border:3px solid #82694d; border-radius:50%; }
+.hand.left { left:8px; transform:rotate(-20deg); }
+.hand.right { right:8px; transform:rotate(20deg); }
+.float-heart { position:absolute; top:145px; right:50px; color:#ef9e9e; font-size:29px; animation:bob 2s infinite; }
+.hero-visual .caption { margin-top:19px; text-align:center; font-weight:bold; color:#748a5b; font-size:14px; }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:25px; }
+.stat { background:white; border:1px solid var(--line); border-radius:20px; padding:18px; text-align:center; }
+.stat strong { display:block; font-size:25px; color:var(--deep); }
+.stat span { display:block; font-size:12px; color:var(--muted); }
+.section { padding:85px 0; }
+.section.soft { background:#f7f9ee; }
+.section.pink { background:#fff6f3; }
+.section-heading { text-align:center; margin-bottom:35px; }
+.section-label { font-size:12px; font-weight:900; color:#8aa466; letter-spacing:2px; margin-bottom:9px; }
+.section-heading h2 { font-size:clamp(25px,3vw,34px); color:var(--deep); margin-bottom:10px; }
+.section-heading p { color:var(--muted); font-size:14px; }
+.steps { display:grid; grid-template-columns:repeat(4,1fr); gap:17px; }
+.step-card { background:white; border:1px solid var(--line); border-radius:25px; padding:28px 18px; text-align:center; box-shadow:0 6px 20px #7a89620e; }
+.step-icon { font-size:45px; margin-bottom:13px; }
+.step-card small { font-size:11px; font-weight:bold; color:#9cab84; }
+.step-card h3 { margin:8px 0; font-size:17px; }
+.step-card p { font-size:12px; color:var(--muted); line-height:1.8; }
+.question-section { display:grid; grid-template-columns:1fr 1fr; gap:35px; align-items:center; }
+.question-intro h2 { font-size:33px; line-height:1.5; margin-bottom:16px; color:var(--deep); }
+.question-intro p { font-size:14px; color:var(--muted); margin-bottom:22px; }
+.question-card { background:white; border:1px solid var(--line); padding:27px; border-radius:26px; box-shadow:0 12px 32px #8b78591a; }
+.question-card .label { color:var(--green); font-weight:bold; font-size:12px; }
+.question-card h3 { margin:12px 0 18px; font-size:23px; }
+.answer { padding:13px 16px; border:1px solid var(--line); border-radius:14px; margin-bottom:9px; display:flex; justify-content:space-between; align-items:center; font-size:14px; }
+.answer.active { background:#f0f7e6; border-color:#aacb90; color:var(--deep); font-weight:bold; }
+.answer span { color:var(--green); }
+.routine-preview { display:grid; grid-template-columns:280px 1fr; gap:24px; align-items:start; }
+.category { background:white; padding:18px; border-radius:23px; border:1px solid var(--line); display:grid; gap:8px; }
+.category button { text-align:left; border:1px solid transparent; background:#faf9f5; border-radius:13px; padding:14px; font-weight:bold; color:#756c64; }
+.category button.active { background:#eaf5e2; border-color:#9fc58a; color:var(--deep); }
+.routine-card { background:white; padding:27px; border-radius:25px; border:1px solid var(--line); }
+.routine-card .small { font-size:12px; color:#87a16e; font-weight:900; }
+.routine-card h3 { font-size:26px; margin:8px 0; color:var(--deep); }
+.routine-card .description { color:var(--muted); font-size:13px; margin-bottom:20px; }
+.task { padding:16px; border:1px solid #e9e8df; border-radius:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; font-size:13px; }
+.task b { color:#739d59; font-size:11px; background:#edf5e5; padding:5px 10px; border-radius:30px; white-space:nowrap; }
+.jar-layout { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:50px; }
+.jar-wrapper { text-align:center; background:#fff; border:1px solid var(--line); border-radius:30px; padding:32px 22px; }
+.jar-lid { width:175px; height:32px; margin:0 auto -4px; border-radius:14px; background:linear-gradient(#b28b62,#8b6547); position:relative; z-index:2; }
+.jar { width:230px; height:255px; margin:auto; border:9px solid #b8d3c1; border-top-width:15px; border-radius:24px 24px 55px 55px; background:linear-gradient(110deg,#e4f5ef88,#ffffff66,#c9e7da77); box-shadow:inset 10px 0 15px #ffffff99; overflow:hidden; position:relative; }
+.jar-beans { position:absolute; bottom:14px; left:15px; right:15px; display:flex; flex-wrap:wrap-reverse; justify-content:center; align-content:flex-end; gap:6px; }
+.bean { width:30px; height:25px; background:#85b957; border-radius:65% 40% 55% 45%; transform:rotate(-18deg); box-shadow:inset -4px -3px #68974755; }
+.bean:nth-child(even) { background:#a0cd70; transform:rotate(15deg); }
+.jar-total { margin-top:18px; color:var(--deep); font-size:22px; font-weight:900; }
+.jar-caption { color:var(--muted); font-size:12px; margin-top:4px; }
+.growth h2 { font-size:32px; color:var(--deep); margin-bottom:15px; }
+.growth p { color:var(--muted); font-size:14px; line-height:2; }
+.growth-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:25px 0; }
+.growth-item { background:white; border:1px solid var(--line); border-radius:15px; padding:14px 7px; text-align:center; }
+.growth-item .emoji { display:block; font-size:31px; margin-bottom:5px; }
+.growth-item strong { display:block; font-size:12px; }
+.growth-item small { color:var(--muted); font-size:10px; }
+.finish { background:linear-gradient(130deg,#eaf5da,#fff0ea); border-radius:34px; text-align:center; padding:65px 20px; }
+.finish .emoji { font-size:65px; display:block; margin-bottom:10px; }
+.finish h2 { font-size:31px; color:var(--deep); margin-bottom:13px; }
+.finish p { color:#80776e; font-size:14px; margin-bottom:25px; }
+.footer { padding:35px 0; border-top:1px solid var(--line); text-align:center; color:#999084; font-size:12px; }
+.footer strong { display:block; color:var(--deep); font-size:18px; margin-bottom:5px; }
+@keyframes bob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-7px); } }
+@media(max-width:800px) {
+  .nav { display:none; }
+  .hero-inner { grid-template-columns:1fr; text-align:center; gap:30px; padding:45px 0; }
+  .hero-buttons { justify-content:center; }
+  .hero-visual { max-width:430px; width:100%; margin:auto; min-height:350px; }
+  .steps { grid-template-columns:repeat(2,1fr); }
+  .question-section,.jar-layout { grid-template-columns:1fr; }
+  .routine-preview { grid-template-columns:1fr; }
+  .category { grid-template-columns:repeat(2,1fr); }
+  .question-intro { text-align:center; }
+  .section { padding:60px 0; }
+}
+@media(max-width:480px) {
+  .logo { font-size:23px; }
+  .hero h1 { font-size:34px; }
+  .hero-text { font-size:14px; }
+  .steps { gap:10px; }
+  .step-card { padding:22px 12px; }
+  .stats { gap:8px; }
+  .stat { padding:13px 7px; }
+  .stat strong { font-size:20px; }
+  .question-card,.routine-card { padding:18px; }
+  .category button { padding:11px; font-size:12px; }
+  .growth-steps { grid-template-columns:repeat(2,1fr); }
+  .finish h2 { font-size:25px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation:none!important; scroll-behavior:auto!important; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">🌱 마음<span>한톨</span></a>
+    <nav class="nav">
+      <a href="#about">서비스 소개</a>
+      <a href="#questions">나를 아는 시간</a>
+      <a href="#routines">맞춤 루틴</a>
+      <a href="#growth">나의 성장</a>
+      <a href="self.html" class="nav-start">시작하기</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <!-- 메인 -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="tag">💗 내 마음을 알아가는 작은 시작</span>
+        <h1>요즘 어때?<br><strong>너의 마음은<br>잘 지내고 있니?</strong></h1>
+        <p class="hero-text">하루하루 바쁘게 살아가다 보면<br>정작 내 마음을 돌볼 시간은 부족하죠.<br>마음한톨에서 잠시 나를 알아보는 시간을 가져봐요.<br>작은 실천 하나가 내일의 나를 바꿀 수 있어요.</p>
+        <div class="hero-buttons">
+          <a href="self.html" class="btn btn-primary">나를 아는 시간 시작하기 🌱</a>
+          <a href="#about" class="btn btn-secondary">마음한톨 알아보기</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="speech">"안녕! 요즘 어때?" 💗<small>나는 네 마음 친구, 톨이야!</small></div>
+        <div class="toli" aria-label="새싹이 난 콩 캐릭터 톨이" role="img">
+          <div class="stem"></div>
+          <div class="leaf left"></div>
+          <div class="leaf right"></div>
+          <div class="toli-body">
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="cheek left"></span>
+            <span class="cheek right"></span>
+            <span class="mouth"></span>
+            <span class="hand left"></span>
+            <span class="hand right"></span>
+          </div>
+        </div>
+        <span class="float-heart">♥</span>
+        <p class="caption">오늘도 내 마음에 행복 한 톨 🫘</p>
+      </div>
+    </div>
+  </section>
+  <!-- 나의 기록 -->
+  <div class="container">
+    <div class="stats">
+      <div class="stat"><strong id="totalBeans">0톨</strong><span>지금까지 모은 마음</span></div>
+      <div class="stat"><strong id="growthName">콩 단계</strong><span>현재 톨이 성장</span></div>
+      <div class="stat"><strong id="doneToday">0개</strong><span>오늘 완료한 일일 루틴</span></div>
+    </div>
+  </div>
+  <!-- 서비스 소개 -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-heading">
+        <p class="section-label">ABOUT MAEUMHANTOL</p>
+        <h2>마음한톨은 어떤 서비스일까요?</h2>
+        <p>나를 이해하는 질문에서 시작해 작은 습관을 만들어가는 공간이에요.</p>
+      </div>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-icon">💗</div>
+          <small>STEP 01</small>
+          <h3>내 마음 알아보기</h3>
+          <p>요즘 어떤 기분인지,<br>무엇이 힘든지 질문에 답해요.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">🌷</div>
+          <small>STEP 02</small>
+          <h3>나에게 필요한 것</h3>
+          <p>내가 원하는 행복과<br>지금 필요한 것을 찾아요.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">✅</div>
+          <small>STEP 03</small>
+          <h3>작은 루틴 실천</h3>
+          <p>내 고민에 맞는<br>실천을 하나씩 시작해요.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">🌱</div>
+          <small>STEP 04</small>
+          <h3>한 톨씩 성장</h3>
+          <p>루틴을 체크하고<br>톨이와 함께 자라나요.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 질문 소개 -->
+  <section class="section soft" id="questions">
+    <div class="container question-section">
+      <div class="question-intro">
+        <p class="section-label">TIME TO KNOW MYSELF</p>
+        <h2>나를 아는 시간,<br>질문 하나부터 시작해요.</h2>
+        <p>어려운 심리검사가 아니에요.<br>톨이의 질문에 마음에 드는 답을 체크하면<br>자동으로 다음 질문으로 넘어가요.<br>모든 질문에는 정답이 없어요.</p>
+        <a href="self.html" class="btn btn-primary">톨이와 문답 시작하기 💗</a>
+      </div>
+      <div class="question-card">
+        <p class="label">🫘 톨이의 첫 번째 질문</p>
+        <h3>요즘 어때?</h3>
+        <div class="answer">😊 행복한 편이야 <span>○</span></div>
+        <div class="answer">🙂 그냥저냥 지내 <span>○</span></div>
+        <div class="answer active">😮💨 조금 지쳤어 <span>✓</span></div>
+        <div class="answer">😟 걱정이 많아 <span>○</span></div>
+        <div class="answer">🤍 잘 모르겠어 <span>○</span></div>
+        <p style="text-align:center;color:#9a9083;font-size:12px;margin-top:15px;">이 화면은 문답 미리보기예요 🌱</p>
+      </div>
+    </div>
+  </section>
+  <!-- 맞춤 루틴 예시 -->
+  <section class="section" id="routines">
+    <div class="container">
+      <div class="section-heading">
+        <p class="section-label">SMALL ROUTINE</p>
+        <h2>내 고민에 맞는 작은 루틴</h2>
+        <p>고민별 루틴을 미리 살펴봐요. 실제 추천은 문답을 끝낸 뒤에 받을 수 있어요.</p>
+      </div>
+      <div class="routine-preview">
+        <div class="category">
+          <button class="active" data-plan="money">💰 돈과 생활</button>
+          <button data-plan="job">💼 취업과 진로</button>
+          <button data-plan="love">💕 인간관계</button>
+          <button data-plan="future">🌧️ 미래 걱정</button>
+          <button data-plan="rest">☕ 피로와 휴식</button>
+        </div>
+        <div class="routine-card">
+          <p class="small">🌱 톨이의 추천 루틴 미리보기</p>
+          <h3 id="planTitle">티끌 모아 태산</h3>
+          <p class="description" id="planDescription">돈 때문에 힘들다면 작은 소비 기록부터 시작해보자.</p>
+          <div id="planTasks">
+            <div class="task"><span>📝 오늘 쓴 돈 한 가지 기록하기</span><b>매일</b></div>
+            <div class="task"><span>📒 이번 주 지출 돌아보기</span><b>매주</b></div>
+            <div class="task"><span>💰 한 달에 1만 원 모으기</span><b>매월</b></div>
+          </div>
+          <a href="self.html" class="btn btn-primary" style="margin-top:15px;">나만의 루틴 추천받기 🌱</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 콩병 성장 -->
+  <section class="section soft" id="growth">
+    <div class="container jar-layout">
+      <div class="jar-wrapper">
+        <div class="jar-lid"></div>
+        <div class="jar">
+          <div class="jar-beans" id="jarBeans"></div>
+        </div>
+        <div class="jar-total" id="jarTotal">지금까지 0톨 🫘</div>
+        <p class="jar-caption">작은 실천이 모여 나의 성장이 돼요.</p>
+      </div>
+      <div class="growth">
+        <p class="section-label">GROW WITH TOLI</p>
+        <h2>마음 한 톨,<br>오늘도 차곡차곡.</h2>
+        <p>해야 할 일을 모두 해내지 않아도 괜찮아요.<br>어제보다 조금 나아진 오늘이면 충분해요.<br>실천을 하나 완료할 때마다 마음 한 톨이 쌓이고,<br>우리 톨이도 함께 자라나요.</p>
+        <div class="growth-steps">
+          <div class="growth-item"><span class="emoji">🫘</span><strong>콩</strong><small>시작</small></div>
+          <div class="growth-item"><span class="emoji">🌱</span><strong>새싹</strong><small>6톨</small></div>
+          <div class="growth-item"><span class="emoji">🌿</span><strong>잎</strong><small>30톨</small></div>
+          <div class="growth-item"><span class="emoji">🌸</span><strong>꽃</strong><small>60톨</small></div>
+        </div>
+        <p style="font-size:12px;">🌳 100톨이 모이면 나무 단계까지 성장할 수 있어요!</p>
+      </div>
+    </div>
+  </section>
+  <!-- 마지막 시작 -->
+  <section class="section pink">
+    <div class="container">
+      <div class="finish">
+        <span class="emoji">🌱</span>
+        <h2>오늘, 나를 위한 한 톨을 시작해볼까요?</h2>
+        <p>행복을 찾기 위해 거창한 변화가 필요한 건 아니에요.<br>오늘의 내 마음을 알아보는 것부터 시작해요.</p>
+        <a href="self.html" class="btn btn-primary">나를 아는 시간 시작하기 💗</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <strong>🌱 마음한톨</strong>
+    <p>내 마음을 알아가는 시간, 나를 키우는 작은 실천.</p>
+    <p>© 마음한톨 · 팀 프로젝트</p>
+  </div>
+</footer>
+<script>
+const plans = {
+  money:{
+    title:"티끌 모아 태산",
+    desc:"돈 때문에 힘들다면 작은 소비 기록부터 시작해보자.",
+    tasks:[["📝 오늘 쓴 돈 한 가지 기록하기","매일"],["📒 이번 주 지출 돌아보기","매주"],["💰 한 달에 1만 원 모으기","매월"]]
+  },
+  job:{
+    title:"나의 진로를 차근차근",
+    desc:"조급해하지 말고 오늘 할 수 있는 준비부터 시작해보자.",
+    tasks:[["📚 관심 분야 10분 공부하기","매일"],["🔎 채용 공고 하나 살펴보기","매주"],["📄 이력서 한 곳 수정하기","매월"]]
+  },
+  love:{
+    title:"내 마음을 지키는 관계",
+    desc:"남의 마음만큼 나의 마음도 소중하게 살펴보자.",
+    tasks:[["✏️ 오늘의 감정 한 줄 적기","매일"],["💌 편한 사람에게 안부 전하기","매주"],["💗 내가 원하는 관계 돌아보기","매월"]]
+  },
+  future:{
+    title:"불안을 작은 계획으로",
+    desc:"먼 미래보다 지금 할 수 있는 작은 일 하나를 찾아보자.",
+    tasks:[["🌱 오늘 할 일 한 가지 정하기","매일"],["🗂️ 필요한 정보 10분 알아보기","매주"],["⭐ 이번 달 목표 돌아보기","매월"]]
+  },
+  rest:{
+    title:"나를 돌보는 회복 루틴",
+    desc:"쉴 때는 쉬어도 괜찮아. 나를 돌보는 것도 중요한 일이야.",
+    tasks:[["☕ 10분 동안 편안히 쉬기","매일"],["🌿 나를 위한 시간 만들기","매주"],["🧸 나를 편안하게 해준 습관 기록","매월"]]
+  }
+};
+document.querySelectorAll("[data-plan]").forEach(button=>{
+  button.addEventListener("click",()=>{
+    document.querySelectorAll("[data-plan]").forEach(b=>b.classList.remove("active"));
+    button.classList.add("active");
+    const plan=plans[button.dataset.plan];
+    document.getElementById("planTitle").textContent=plan.title;
+    document.getElementById("planDescription").textContent=plan.desc;
+    const box=document.getElementById("planTasks");
+    box.replaceChildren();
+    plan.tasks.forEach(([name,period])=>{
+      const row=document.createElement("div");
+      row.className="task";
+      const text=document.createElement("span");
+      text.textContent=name;
+      const badge=document.createElement("b");
+      badge.textContent=period;
+      row.append(text,badge);
+      box.appendChild(row);
+    });
+  });
+});
+function loadMyGrowth(){
+  let total=0;
+  let completed={};
+  try{
+    const data=JSON.parse(localStorage.getItem("maeumhantol_v2"));
+    if(data&&typeof data==="object"){
+      completed=data.completed&&typeof data.completed==="object"?data.completed:{};
+      total=(Number(data.legacyBeans)||0)+Object.values(completed).filter(Boolean).length;
+    }else{
+      const old=JSON.parse(localStorage.getItem("maeumhantol_beans_v1"));
+      total=Number(old?.total)||0;
+    }
+  }catch(error){
+    console.log("아직 저장된 성장 기록이 없어요.");
+  }
+  total=Math.max(0,total);
+  const stage=total>=100?"나무 단계":total>=60?"꽃 단계":total>=30?"잎 단계":total>=6?"새싹 단계":"콩 단계";
+  const now=new Date();
+  const today=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
+  const dailyCount=Object.entries(completed).filter(([key,value])=>value&&key.endsWith("|day:"+today)).length;
+  document.getElementById("totalBeans").textContent=total+"톨";
+  document.getElementById("growthName").textContent=stage;
+  document.getElementById("doneToday").textContent=dailyCount+"개";
+  document.getElementById("jarTotal").textContent="지금까지 "+total+"톨 🫘";
+  const jar=document.getElementById("jarBeans");
+  jar.replaceChildren();
+  for(let i=0;i<Math.min(total,24);i++){
+    const bean=document.createElement("span");
+    bean.className="bean";
+    jar.appendChild(bean);
+  }
+}
+loadMyGrowth();
+window.addEventListener("pageshow",loadMyGrowth);
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마음한톨 | 톨이와 나를 아는 시간</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root { --green:#729d59; --deep:#47653e; --cream:#fffdf7; --line:#e8e4da; --ink:#51463e; --muted:#857c71; }
+    body { margin:0; height:100dvh; overflow:hidden; font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif; color:var(--ink); background:linear-gradient(145deg,#fff0e9,#f0f7e4); }
+    button,select { font:inherit; }
+    button { cursor:pointer; }
+    .app { width:min(100%,560px); height:100dvh; margin:auto; padding:12px; display:flex; flex-direction:column; gap:10px; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; min-height:40px; padding:0 8px; }
+    .logo { font-weight:900; font-size:23px; color:#6b5b49; }
+    .logo b { color:var(--green); }
+    .tagline { color:#988b7b; font-size:11px; }
+    .panel { flex:1; min-height:0; display:flex; flex-direction:column; padding:18px; background:var(--cream); border:1px solid #f0e8dc; border-radius:29px; box-shadow:0 14px 35px #78684a1c; }
+    .progress-row { display:flex; justify-content:space-between; font-size:13px; color:var(--muted); margin-bottom:9px; }
+    .track { height:8px; background:#ecebdf; border-radius:99px; overflow:hidden; flex-shrink:0; }
+    .fill { width:20%; height:100%; background:var(--green); border-radius:99px; transition:width .2s; }
+    .screen { flex:1; min-height:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; }
+    .hidden { display:none!important; }
+    .toli { position:relative; width:112px; height:115px; flex-shrink:0; animation:float 2.5s ease-in-out infinite; }
+    .body-bean { position:absolute; left:8px; bottom:0; width:96px; height:86px; background:linear-gradient(#fff6dc,#ffdfbf); border:3px solid #806a52; border-radius:53% 50% 45% 47%; box-shadow:0 7px 0 #dce8bc; }
+    .eye { position:absolute; top:35px; width:8px; height:10px; border-radius:50%; background:#59453a; }
+    .eye.left { left:25px; }
+    .eye.right { right:25px; }
+    .cheek { position:absolute; top:48px; width:17px; height:10px; border-radius:50%; background:#f6b0ad; }
+    .cheek.left { left:10px; }
+    .cheek.right { right:10px; }
+    .smile { position:absolute; top:46px; left:40px; width:11px; height:10px; border-bottom:3px solid #7e5148; border-radius:0 0 50% 50%; }
+    .sprout { position:absolute; left:52px; top:0; width:7px; height:39px; background:#799d4c; border-radius:8px; transition:opacity .2s; }
+    .leaf { position:absolute; top:2px; width:32px; height:22px; background:#a9cc71; border:2px solid #648d43; transition:transform .2s; }
+    .leaf.left { left:23px; border-radius:90% 10% 90% 10%; transform:rotate(18deg); }
+    .leaf.right { right:19px; border-radius:10% 90% 10% 90%; transform:rotate(-18deg); }
+    .flower { display:none; position:absolute; top:-16px; left:40px; font-size:34px; }
+    .tree { display:none; position:absolute; top:-31px; left:27px; font-size:52px; }
+    .growth-0 .sprout,.growth-0 .leaf { opacity:0; }
+    .growth-2 .leaf.left { transform:rotate(18deg) scale(1.25); }
+    .growth-2 .leaf.right { transform:rotate(-18deg) scale(1.25); }
+    .growth-3 .flower { display:block; }
+    .growth-4 .flower { display:block; }
+    .growth-4 .flower { display:none; }
+    .growth-4 .tree { display:block; }
+    .bubble { width:100%; text-align:center; padding:14px; background:#f7f6eb; border-radius:20px; }
+    .bubble small { font-weight:800; color:var(--green); }
+    .bubble h1 { font-size:clamp(21px,5vw,28px); margin:7px 0; }
+    .bubble p { color:var(--muted); font-size:12px; margin:0; }
+    .choices { display:grid; gap:9px; width:100%; }
+    .choice { min-height:51px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:11px 15px; border:1.5px solid var(--line); border-radius:16px; background:white; color:var(--ink); text-align:left; font-size:14px; font-weight:bold; }
+    .choice:hover,.choice:focus-visible { border-color:var(--green); background:#f4faef; }
+    .choice.selected { background:#e8f5df; border-color:var(--green); }
+    .choice .round { width:21px; height:21px; border:2px solid #cccbbc; border-radius:50%; flex-shrink:0; display:grid; place-items:center; color:transparent; }
+    .choice.selected .round { background:var(--green); border-color:var(--green); color:white; }
+    .under { display:flex; justify-content:space-between; align-items:center; min-height:36px; padding:0 5px; font-size:12px; color:var(--muted); }
+    .text-btn { padding:8px; border:none; background:none; color:#7d856a; font-weight:bold; }
+    .text-btn:disabled { opacity:.3; cursor:default; }
+    .result { overflow-y:auto; justify-content:flex-start; align-items:stretch; padding-top:14px; padding-bottom:8px; gap:11px; scrollbar-width:thin; }
+    .result-head { display:flex; align-items:center; gap:13px; }
+    .result-head .toli { transform:scale(.8); transform-origin:center; margin:-12px -4px; animation:none; }
+    .result h1 { margin:0; color:var(--deep); font-size:23px; }
+    .sub { margin:4px 0 0; color:var(--muted); font-size:12px; line-height:1.55; }
+    .summary { background:#f8f6ed; border-radius:17px; padding:13px 15px; font-size:12px; display:grid; gap:8px; }
+    .summary b { color:var(--deep); }
+    .routines-head { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+    h2 { font-size:18px; margin:0; color:var(--deep); }
+    .beans { padding:7px 11px; background:#e9f5d9; border-radius:99px; color:var(--deep); font-size:12px; font-weight:900; white-space:nowrap; }
+    .goal-row { display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:12px; border:1px solid #eadfbf; background:#fff9e8; border-radius:15px; font-size:12px; }
+    .goal-row label { font-weight:800; }
+    .goal-row select { border:1px solid #d9d1b3; border-radius:9px; background:white; padding:6px; color:var(--ink); }
+    .routine-list { display:grid; gap:9px; }
+    .routine { display:flex; align-items:center; gap:12px; width:100%; border:1px solid var(--line); background:white; border-radius:15px; padding:12px; text-align:left; color:var(--ink); }
+    .routine:hover { border-color:#b8d0a2; }
+    .routine.done { background:#eff8e9; border-color:#afcea1; }
+    .routine .check { width:24px; height:24px; border:2px solid #bac9ab; border-radius:8px; flex-shrink:0; display:grid; place-items:center; color:transparent; }
+    .routine.done .check { color:white; background:var(--green); border-color:var(--green); }
+    .routine .info { display:grid; gap:3px; flex:1; }
+    .routine .info strong { font-size:13px; }
+    .routine .info small { color:var(--muted); font-size:11px; line-height:1.4; }
+    .period { flex-shrink:0; color:#698456; background:#f0f6e9; border-radius:7px; padding:5px 7px; font-size:11px; }
+    .status { background:#f7f5e9; border-radius:17px; padding:13px; display:grid; gap:8px; }
+    .status-line { display:flex; justify-content:space-between; gap:8px; font-size:12px; }
+    .status .track { height:9px; }
+    .helper { color:var(--muted); font-size:11px; line-height:1.5; margin:0; }
+    .actions { display:flex; gap:9px; flex-wrap:wrap; }
+    .secondary { border:1px solid #d6dec6; border-radius:99px; background:white; color:#62814f; padding:11px 15px; font-size:12px; font-weight:bold; }
+    @keyframes float {
+      0%,100% { transform:translateY(0); }
+      50% { transform:translateY(-5px); }
+    }
+    @media (max-height:750px) {
+      .app { padding:7px; gap:5px; }
+      .panel { padding:11px; }
+      .screen { gap:7px; }
+      .toli { width:112px; height:94px; }
+      .bubble { padding:9px; }
+      .choices { gap:6px; }
+      .choice { min-height:42px; padding:8px 12px; }
+    }
+    @media (max-height:590px) {
+      #quizMascot { display:none; }
+      .bubble { padding:7px; }
+      .choice { min-height:36px; padding:6px 10px; }
+      .screen { gap:4px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      * { animation:none!important; transition:none!important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="logo">🌱 마음<b>한톨</b></div>
+      <span class="tagline">오늘도 내 마음에 행복 한 톨</span>
+    </header>
+
+    <main class="panel">
+      <div class="progress-row">
+        <span id="progressLabel">나를 아는 시간</span>
+        <strong id="progressNumber">1 / 5</strong>
+      </div>
+      <div class="track"><div class="fill" id="progressFill"></div></div>
+
+      <section class="screen" id="quizScreen">
+        <div class="toli growth-0" id="quizMascot" role="img" aria-label="귀여운 콩 캐릭터 톨이">
+          <div class="sprout"></div>
+          <div class="leaf left"></div>
+          <div class="leaf right"></div>
+          <div class="body-bean">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="cheek left"></div>
+            <div class="cheek right"></div>
+            <div class="smile"></div>
+          </div>
+          <div class="flower">🌸</div>
+          <div class="tree">🌳</div>
+        </div>
+        <div class="bubble">
+          <small>🫘 톨이가 물어볼게!</small>
+          <h1 id="questionTitle">요즘 어때?</h1>
+          <p id="questionHint">지금 마음에 가장 가까운 답을 골라줘.</p>
+        </div>
+        <div class="choices" id="choiceList"></div>
+      </section>
+
+      <section class="screen result hidden" id="resultScreen">
+        <div class="result-head">
+          <div class="toli growth-0" id="resultMascot" role="img" aria-label="성장하는 톨이">
+            <div class="sprout"></div>
+            <div class="leaf left"></div>
+            <div class="leaf right"></div>
+            <div class="body-bean">
+              <div class="eye left"></div>
+              <div class="eye right"></div>
+              <div class="cheek left"></div>
+              <div class="cheek right"></div>
+              <div class="smile"></div>
+            </div>
+            <div class="flower">🌸</div>
+            <div class="tree">🌳</div>
+          </div>
+          <div>
+            <h1>오늘의 마음 한 톨 💗</h1>
+            <p class="sub">네 답변을 토대로 작은 루틴을 골랐어!</p>
+          </div>
+        </div>
+
+        <div class="summary">
+          <div>💗 요즘 내 마음: <b id="moodResult"></b></div>
+          <div>🧩 가장 신경 쓰이는 것: <b id="worryResult"></b></div>
+          <div>🌿 지금 필요한 것: <b id="needResult"></b></div>
+          <div>☀️ 바라는 하루: <b id="dayResult"></b></div>
+        </div>
+
+        <div class="routines-head">
+          <h2 id="routineTitle">오늘부터 한 톨씩</h2>
+          <span class="beans" id="beansTotal">🫘 0톨</span>
+        </div>
+        <p class="sub" id="routineIntro">작은 실천을 체크하면서 천천히 쌓아가자.</p>
+
+        <div class="goal-row hidden" id="savingGoalRow">
+          <label for="savingGoal">💰 한 달 저축 목표</label>
+          <select id="savingGoal">
+            <option value="1000">1,000원</option>
+            <option value="5000">5,000원</option>
+            <option value="10000">10,000원</option>
+            <option value="30000">30,000원</option>
+          </select>
+        </div>
+
+        <div class="routine-list" id="routineList"></div>
+
+        <div class="status">
+          <div class="status-line">
+            <strong id="growthText">🫘 콩 단계</strong>
+            <span id="doneText">현재 루틴 0 / 4 완료</span>
+          </div>
+          <div class="track">
+            <div class="fill" id="routineFill" style="width:0%"></div>
+          </div>
+          <p class="helper" id="growthMessage">6톨을 모으면 톨이에게 새싹이 나와!</p>
+        </div>
+        <p class="helper">
+          매일·매주·매월 루틴은 각각 해당 기간에 한 번 체크할 수 있어.
+          저축은 앱에서 자동 이체되지 않으니 실제로 저축한 뒤 체크해줘.
+          답변과 기록은 이 브라우저에만 저장돼.
+        </p>
+        <div class="actions">
+          <button class="secondary" id="restartButton">↻ 문답 다시 하기</button>
+          <button class="secondary" id="resetButton">기록 전체 지우기</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="under">
+      <button class="text-btn" id="backButton">← 이전 질문</button>
+      <span id="footerNote">답을 체크하면 자동으로 넘어가요 🌱</span>
+    </footer>
+  </div>
+
+  <script>
+    const QUESTIONS = [
+      {
+        title:"요즘 어때?",
+        hint:"지금 마음에 가장 가까운 답을 골라줘.",
+        options:["😊 행복한 편이야","🙂 그냥저냥 지내","😮💨 조금 지쳤어","😟 걱정이 많아","🤍 잘 모르겠어"]
+      },
+      {
+        title:"요즘 가장 신경 쓰이는 건?",
+        hint:"고민을 하나 골라봐. 정답은 없어.",
+        options:["💼 일과 취업","💰 돈과 생활","💕 연애와 인간관계","🌧️ 미래에 대한 걱정","🛌 몸과 마음의 피로"]
+      },
+      {
+        title:"언제 마음이 가장 편안해져?",
+        hint:"내가 좋아하는 순간을 떠올려보자.",
+        options:["☕ 혼자만의 시간","💗 좋아하는 사람과 함께할 때","🎵 취미를 즐길 때","🌿 산책할 때","✨ 무언가 해냈을 때"]
+      },
+      {
+        title:"지금 나에게 가장 필요한 건?",
+        hint:"남들이 아닌 네 마음을 기준으로 골라줘.",
+        options:["🧸 휴식","🏡 안정","💪 자신감","🤝 따뜻한 관계","🌱 성장"]
+      },
+      {
+        title:"내가 바라는 하루는?",
+        hint:"가장 닮고 싶은 하루를 골라줘.",
+        options:["🌷 걱정 없이 편안한 하루","☀️ 활기차고 건강한 하루","💖 사람들과 따뜻한 하루","✨ 뿌듯하게 마무리하는 하루","🍃 나만의 여유가 있는 하루"]
+      }
+    ];
+
+    const PLANS = [
+      {
+        title:"나의 진로를 차근차근",
+        intro:"한 번에 다 해결하려 하지 말고, 나에게 필요한 준비를 조금씩 해보자.",
+        tasks:[
+          {id:"job-study",frequency:"daily",title:"관심 분야 10분 알아보기",detail:"기사·강의·직무 정보를 10분만 살펴보기"},
+          {id:"job-list",frequency:"weekly",title:"관심 있는 채용 공고 1개 살펴보기",detail:"조건을 읽고 필요한 준비 하나 적기"},
+          {id:"job-resume",frequency:"monthly",title:"이력서나 포트폴리오 한 곳 개선하기",detail:"작은 문장 하나만 고쳐도 괜찮아"}
+        ]
+      },
+      {
+        title:"티끌 모아 태산",
+        intro:"큰돈을 당장 모으지 않아도 괜찮아. 지출을 알아보고 조금씩 모아보자.",
+        tasks:[
+          {id:"money-note",frequency:"daily",title:"오늘 쓴 돈 한 가지 기록하기",detail:"금액과 무엇을 샀는지만 간단히 적어보기"},
+          {id:"money-week",frequency:"weekly",title:"이번 주 지출 5분 돌아보기",detail:"줄일 수 있는 소비가 있는지 살펴보기"},
+          {id:"money-save",frequency:"monthly",title:"이번 달 10,000원 모으기",detail:"실제로 저축한 다음 완료 체크하기"}
+        ]
+      },
+      {
+        title:"내 마음을 지키는 관계",
+        intro:"모든 관계를 잘해야 한다는 부담보다 내 마음을 먼저 살펴보자.",
+        tasks:[
+          {id:"love-journal",frequency:"daily",title:"오늘의 감정 한 줄 적어보기",detail:"좋았던 일도 속상했던 일도 괜찮아"},
+          {id:"love-hello",frequency:"weekly",title:"편한 사람에게 안부 전하기",detail:"부담 없는 짧은 메시지도 충분해"},
+          {id:"love-boundary",frequency:"monthly",title:"내가 편한 관계의 기준 적기",detail:"원하는 것과 원하지 않는 것을 정리하기"}
+        ]
+      },
+      {
+        title:"불안을 작은 계획으로",
+        intro:"미래 전체가 아닌, 오늘 할 수 있는 한 가지에 집중해보자.",
+        tasks:[
+          {id:"future-one",frequency:"daily",title:"오늘 할 수 있는 일 하나 적기",detail:"너무 큰 계획은 잘게 나눠보기"},
+          {id:"future-info",frequency:"weekly",title:"궁금했던 정보 10분 찾아보기",detail:"진로·생활·배움 중 하나만 선택하기"},
+          {id:"future-review",frequency:"monthly",title:"이번 달 목표 한 번 돌아보기",detail:"해낸 것 하나와 바꾸고 싶은 것 하나 적기"}
+        ]
+      },
+      {
+        title:"나를 돌보는 회복 루틴",
+        intro:"지쳤을 땐 속도를 늦추는 것도 필요한 실천이야.",
+        tasks:[
+          {id:"tired-rest",frequency:"daily",title:"10분 동안 편안히 쉬기",detail:"잠시 화면을 내려놓고 쉬어보기"},
+          {id:"tired-refresh",frequency:"weekly",title:"나를 위한 편안한 활동 하나 하기",detail:"산책·취미·목욕 등 좋아하는 활동"},
+          {id:"tired-review",frequency:"monthly",title:"나를 회복시킨 습관 돌아보기",detail:"도움이 됐던 행동 한 가지 적기"}
+        ]
+      }
+    ];
+
+    const NEED_TASKS = [
+      {id:"need-rest",frequency:"daily",title:"휴대폰 없이 5분 쉬기",detail:"조용히 쉬거나 편안하게 숨 고르기"},
+      {id:"need-stable",frequency:"daily",title:"내일 할 일 한 가지 적기",detail:"하루를 조금 더 예측 가능하게 만들기"},
+      {id:"need-confidence",frequency:"daily",title:"오늘 잘한 일 하나 적기",detail:"아주 사소한 일이어도 좋아"},
+      {id:"need-friend",frequency:"weekly",title:"고마운 사람에게 짧게 마음 전하기",detail:"상대가 편안한 관계일 때만 해봐"},
+      {id:"need-growth",frequency:"daily",title:"새로운 것 5분 배워보기",detail:"관심 있는 주제를 가볍게 살펴보기"}
+    ];
+
+    const STORE = "maeumhantol_v2";
+    const DEFAULT = {
+      answers:[],
+      step:0,
+      screen:"quiz",
+      completed:{},
+      savingGoal:10000,
+      legacyBeans:0
+    };
+    const $ = id => document.getElementById(id);
+
+    function load() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORE));
+        if (saved && typeof saved === "object") {
+          return {
+            ...DEFAULT,
+            ...saved,
+            answers:Array.isArray(saved.answers) ? saved.answers : [],
+            completed:saved.completed && typeof saved.completed === "object" ? saved.completed : {}
+          };
+        }
+      } catch(error) {
+        console.warn("저장된 기록을 읽지 못했어요.");
+      }
+
+      let old = 0;
+      try {
+        old = Math.max(
+          0,
+          Number(JSON.parse(localStorage.getItem("maeumhantol_beans_v1"))?.total) || 0
+        );
+      } catch(error) {}
+
+      return {...DEFAULT,legacyBeans:old};
+    }
+
+    let state = load();
+    let moving = false;
+
+    function save() {
+      try {
+        localStorage.setItem(STORE,JSON.stringify(state));
+      } catch(error) {
+        console.warn("이 브라우저에 기록을 저장할 수 없어요.");
+      }
+    }
+
+    function two(n) {
+      return String(n).padStart(2,"0");
+    }
+
+    function dayString(date) {
+      return `${date.getFullYear()}-${two(date.getMonth()+1)}-${two(date.getDate())}`;
+    }
+
+    function periodKey(frequency) {
+      const d = new Date();
+      if (frequency === "daily") return `day:${dayString(d)}`;
+
+      if (frequency === "monthly") {
+        return `month:${d.getFullYear()}-${two(d.getMonth()+1)}`;
+      }
+
+      const monday = new Date(
+        d.getFullYear(),
+        d.getMonth(),
+        d.getDate()-((d.getDay()+6)%7)
+      );
+      return `week:${dayString(monday)}`;
+    }
+
+    function taskKey(task) {
+      return `${task.id}|${periodKey(task.frequency)}`;
+    }
+
+    function beanTotal() {
+      return state.legacyBeans + Object.values(state.completed).filter(Boolean).length;
+    }
+
+    function growthLevel() {
+      const n = beanTotal();
+      return n >= 100 ? 4 : n >= 60 ? 3 : n >= 30 ? 2 : n >= 6 ? 1 : 0;
+    }
+
+    function updateMascot() {
+      for (const id of ["quizMascot","resultMascot"]) {
+        $(id).className = `toli growth-${growthLevel()}`;
+      }
+    }
+
+    function renderQuiz() {
+      state.screen = "quiz";
+      state.step = Math.max(0,Math.min(state.step,QUESTIONS.length-1));
+
+      $("quizScreen").classList.remove("hidden");
+      $("resultScreen").classList.add("hidden");
+      $("progressLabel").textContent = "나를 아는 시간";
+      $("progressNumber").textContent = `${state.step+1} / ${QUESTIONS.length}`;
+      $("progressFill").style.width = `${(state.step+1)/QUESTIONS.length*100}%`;
+      $("backButton").disabled = state.step === 0;
+      $("footerNote").textContent = "체크하면 자동으로 다음 질문 🌱";
+
+      const q = QUESTIONS[state.step];
+      $("questionTitle").textContent = q.title;
+      $("questionHint").textContent = q.hint;
+      $("choiceList").replaceChildren();
+
+      q.options.forEach((option,index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "choice";
+
+        const text = document.createElement("span");
+        text.textContent = option;
+
+        const round = document.createElement("span");
+        round.className = "round";
+        round.textContent = "✓";
+
+        button.append(text,round);
+
+        button.addEventListener("click",() => {
+          if (moving) return;
+
+          moving = true;
+          button.classList.add("selected");
+          state.answers[state.step] = index;
+          save();
+
+          setTimeout(() => {
+            state.step++;
+
+            if (state.step === QUESTIONS.length) {
+              state.screen = "result";
+              renderResult();
+            } else {
+              renderQuiz();
+            }
+
+            moving = false;
+            save();
+          },190);
+        });
+
+        $("choiceList").appendChild(button);
+      });
+
+      updateMascot();
+    }
+
+    function getTasks() {
+      const worry = state.answers[1];
+      const need = state.answers[3];
+
+      if (!Number.isInteger(worry) || !Number.isInteger(need)) {
+        return [];
+      }
+
+      const tasks = PLANS[worry].tasks.map(t => ({...t}));
+
+      if (worry === 1) {
+        const monthly = tasks.find(t => t.id === "money-save");
+        monthly.title =
+          `이번 달 ${Number(state.savingGoal).toLocaleString("ko-KR")}원 모으기`;
+      }
+
+      tasks.push({...NEED_TASKS[need]});
+      return tasks;
+    }
+
+    function frequencyText(freq) {
+      return {
+        daily:"매일",
+        weekly:"매주",
+        monthly:"매월"
+      }[freq];
+    }
+// 세션 1 : 강성훈
+    function renderRoutineList() {
+      const tasks = getTasks();
+      $("routineList").replaceChildren();
+
+      tasks.forEach(task => {
+        const key = taskKey(task);
+        const done = !!state.completed[key];
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `routine${done ? " done" : ""}`;
+        button.setAttribute("aria-pressed",String(done));
+
+        const check = document.createElement("span");
+        check.className = "check";
+        check.textContent = "✓";
+
+        const info = document.createElement("span");
+        info.className = "info";
+
+        const title = document.createElement("strong");
+        title.textContent = task.title;
+
+        const desc = document.createElement("small");
+        desc.textContent = task.detail;
+
+        info.append(title,desc);
+
+        const period = document.createElement("span");
+        period.className = "period";
+        period.textContent = frequencyText(task.frequency);
+
+        button.append(check,info,period);
+
+        button.addEventListener("click",() => {
+          if (state.completed[key]) {
+            delete state.completed[key];
+          } else {
+            state.completed[key] = true;
+          }
+
+          save();
+          renderRoutineList();
+          renderStats();
+        });
+
+        $("routineList").appendChild(button);
+      });
+    }
+
+    function renderStats() {
+      const tasks = getTasks();
+      const done = tasks.filter(t => state.completed[taskKey(t)]).length;
+      const total = beanTotal();
+      const names = [
+        "🫘 콩 단계",
+        "🌱 새싹 단계",
+        "🌿 잎 단계",
+        "🌸 꽃 단계",
+        "🌳 나무 단계"
+      ];
+      const goals = [6,30,60,100];
+      const level = growthLevel();
+
+      $("beansTotal").textContent = `🫘 누적 ${total}톨`;
+      $("growthText").textContent = names[level];
+      $("doneText").textContent = `이번 주기 ${done} / ${tasks.length} 완료`;
+      $("routineFill").style.width =
+        `${tasks.length ? done/tasks.length*100 : 0}%`;
+
+      $("growthMessage").textContent = level === 4
+        ? "🎉 톨이가 나무처럼 자랐어! 앞으로도 한 톨씩 쌓아보자."
+        : `다음 성장까지 ${goals[level]-total}톨 남았어. 작은 실천도 소중해!`;
+
+      updateMascot();
+    }
+
+    function renderResult() {
+      if (
+        state.answers.length < QUESTIONS.length ||
+        state.answers.some(v => !Number.isInteger(v))
+      ) {
+        state.step = Math.max(
+          0,
+          Math.min(state.answers.length,QUESTIONS.length-1)
+        );
+        renderQuiz();
+        return;
+      }
+
+      state.screen = "result";
+      $("quizScreen").classList.add("hidden");
+      $("resultScreen").classList.remove("hidden");
+      $("resultScreen").scrollTop = 0;
+      $("progressLabel").textContent = "톨이의 맞춤 루틴";
+      $("progressNumber").textContent = "문답 완료 💗";
+      $("progressFill").style.width = "100%";
+      $("backButton").disabled = false;
+      $("footerNote").textContent = "체크할 때마다 마음 한 톨 🫘";
+
+      $("moodResult").textContent =
+        QUESTIONS[0].options[state.answers[0]];
+
+      $("worryResult").textContent =
+        QUESTIONS[1].options[state.answers[1]];
+
+      $("needResult").textContent =
+        QUESTIONS[3].options[state.answers[3]];
+
+      $("dayResult").textContent =
+        QUESTIONS[4].options[state.answers[4]];
+
+      const plan = PLANS[state.answers[1]];
+
+      $("routineTitle").textContent = `🌱 ${plan.title}`;
+      $("routineIntro").textContent = plan.intro;
+      $("savingGoalRow").classList.toggle(
+        "hidden",
+        state.answers[1] !== 1
+      );
+      $("savingGoal").value = String(state.savingGoal);
+
+      renderRoutineList();
+      renderStats();
+      save();
+    }
+
+    $("savingGoal").addEventListener("change",event => {
+      const value = Number(event.target.value);
+      if (![1000,5000,10000,30000].includes(value)) return;
+
+      state.savingGoal = value;
+      save();
+      renderRoutineList();
+    });
+
+    $("backButton").addEventListener("click",() => {
+      if (moving) return;
+
+      if (state.screen === "result") {
+        state.step = QUESTIONS.length-1;
+      } else {
+        state.step = Math.max(0,state.step-1);
+      }
+
+      renderQuiz();
+      save();
+    });
+
+    $("restartButton").addEventListener("click",() => {
+      state.answers = [];
+      state.step = 0;
+      renderQuiz();
+      save();
+    });
+
+    $("resetButton").addEventListener("click",() => {
+      if (!confirm("문답과 모은 콩을 포함한 모든 기록을 지울까요?")) {
+        return;
+      }
+
+      localStorage.removeItem(STORE);
+      localStorage.removeItem("maeumhantol_beans_v1");
+
+      state = {
+        ...DEFAULT,
+        answers:[],
+        completed:{}
+      };
+
+      renderQuiz();
+      save();
+    });
+
+    if (state.screen === "result") {
+      renderResult();
+    } else {
+      renderQuiz();
+    }
+  </script>
+</body>
+</html>
