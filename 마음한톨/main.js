@@ -16,8 +16,8 @@ document.querySelectorAll("#answerList .answer-item").forEach(item => {
 
 
 
-// [섹션4. 차명진] 고민 5개별 루틴 내용 (Day13 배열 + 객체)
-//  id는 HTML 버튼 id="btn-○○"의 ○○ 부분과 똑같아야 해요. 예) id: "money" → id="btn-money"
+// [섹션4. 차명진] 고민 5개별 루틴 내용 
+
 const routinePlans = [
   {
     id: "money",
