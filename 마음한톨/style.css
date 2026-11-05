@@ -1,4 +1,3 @@
-
 /* ---------- 1. 공통 기본값 ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -57,29 +56,6 @@ margin: 20px 0;
 
 
 
-
-/* ---------- 2. 내 섹션: 맞춤 루틴 (휴대폰 기준) ---------- */
-
-/* [전체 배치] 휴대폰에서는 버튼 목록이 위, 카드가 아래 (Day06 grid) */
-.routine-preview { display: grid; grid-template-columns: 1fr; gap: 24px; }
-
-/* [버튼 목록] 휴대폰에서는 2개씩 나란히 */
-.category { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 18px; background: white; border: 1px solid #ebe5d9; border-radius: 23px; }
-.category button { padding: 11px; font-size: 12px; font-weight: bold; text-align: left; color: #756c64; background: #faf9f5; border: 1px solid #faf9f5; border-radius: 13px; }
-.category button.active { color: #476b43; background: #eaf5e2; border-color: #9fc58a; }   /* JS가 붙였다 떼는 '선택됨' 모양 (Day15 classList) */
-
-/* [추천 카드] */
-.routine-card { padding: 18px; background: white; border: 1px solid #ebe5d9; border-radius: 25px; }
-.routine-card .small { font-size: 12px; font-weight: 900; color: #87a16e; }
-.routine-card h3 { margin: 8px 0; font-size: 22px; color: #476b43; }
-.routine-card .description { margin-bottom: 20px; font-size: 13px; color: #8b8176; }
-.routine-card .btn { margin-top: 15px; }
-
-/* [할 일 한 줄] 왼쪽 글자 ↔ 오른쪽 주기 배지 (Day05 flex) */
-.task { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; padding: 16px; font-size: 13px; border: 1px solid #e9e8df; border-radius: 14px; }
-.task b { padding: 5px 10px; font-size: 11px; color: #739d59; background: #edf5e5; border-radius: 30px; }
-
-
 /* ---------- 3. 넓은 화면 (768px 이상) ---------- */
 @media (min-width: 768px) {
   .section-heading h2 { font-size: 34px; }
@@ -89,7 +65,9 @@ margin: 20px 0;
   .routine-card { padding: 27px; }
   .routine-card h3 { font-size: 26px; }
 }
-=======
+
+
+
 /* // ======================================== */
 /* // 세션 1 CSS 시작: 메인 소개 */
 /* // ======================================== */
@@ -403,3 +381,29 @@ margin: 20px 0;
 }
 
 /* // 세션 1 CSS 끝 */
+
+
+
+/* ---------- 섹션4. 차명진 (휴대폰 기준) ---------- */
+
+/* [전체 배치 grid 사용] 휴대폰에서는 버튼 목록이 위, 카드가 아래 */
+.routine-preview { display: grid; grid-template-columns: 1fr; gap: 24px; }
+
+/* [버튼 목록] 휴대폰에서는 2개씩 나란히 */
+.category { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 18px; background: white; border: 1px solid #ebe5d9; border-radius: 23px; }
+.category button { padding: 11px; font-size: 12px; font-weight: bold; text-align: left; color: #756c64; background: #faf9f5; border: 1px solid #faf9f5; border-radius: 13px; }
+.category button.active { color: #476b43; background: #eaf5e2; border-color: #9fc58a; }   /* JS가 붙였다 떼는 '선택됨' 모양 (Day15 classList) */
+
+
+/* [추천 카드] */
+.routine-card { padding: 18px; background: white; border: 1px solid #ebe5d9; border-radius: 25px; }
+.routine-card .small { font-size: 12px; font-weight: 900; color: #87a16e; }
+.routine-card h3 { margin: 8px 0; font-size: 22px; color: #476b43; }
+.routine-card .description { margin-bottom: 20px; font-size: 13px; color: #8b8176; }
+.routine-card .btn { margin-top: 15px; }
+
+
+/* [할 일 한 줄, flex 사용] 왼쪽 글자 ↔ 오른쪽 주기 배지*/
+.task { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; padding: 16px; font-size: 13px; border: 1px solid #e9e8df; border-radius: 14px; }
+.task b { padding: 5px 10px; font-size: 11px; color: #739d59; background: #edf5e5; border-radius: 30px; }
+

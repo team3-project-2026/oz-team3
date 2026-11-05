@@ -2,9 +2,8 @@
 
 
 
-// [차명진] 4 데이터: 고민 5개별 루틴 내용
-//  - money, job 같은 이름(키)은 HTML 버튼의 data-plan 값과 똑같아야 해요.
-//  - tasks는 [할 일, 주기] 묶음 3개예요.
+// [섹션4. 차명진] 고민 5개별 루틴 내용
+//  money, job 키는 HTML 버튼의 data-plan 값과 똑같이 진행하고, tasks는 [할 일, 주기] 묶음 3개임
 const plans = {
   money: {
     title: "티끌 모아 태산",
