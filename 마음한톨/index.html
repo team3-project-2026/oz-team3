@@ -10,51 +10,10 @@
 // 세션 5-6 : 박현주
 
 <title>마음한톨 | GNB 완성 & 실습 템플릿</title>
-<style>
-  /* 🎨 공통 스타일 및 변수 */
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --green: #78a75a; --deep: #476b43; --light: #edf6e6;
-    --cream: #fffcf5; --pink: #fff0ed; --ink: #53483f;
-    --muted: #8b8176; --line: #ebe5d9;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; background: var(--cream); color: var(--ink); line-height: 1.7; }
-  a { text-decoration: none; color: inherit; }
-  button { font: inherit; cursor: pointer; }
-  .container { width: min(1080px, 92%); margin: auto; }
-  .section { padding: 85px 0; }
-  .section.soft { background: #f7f9ee; }
-  .section.pink { background: #fff6f3; }
 
-  /* ==========================================
-     [완성된 GNB(Header) 스타일]
-     ========================================== */
-  .header { position: sticky; top: 0; z-index: 50; background: #fffdf8ed; backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  .header-inner { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-  .logo { font-size: 26px; font-weight: 900; color: #695444; white-space: nowrap; }
-  .logo span { color: var(--green); }
-  .nav { display: flex; align-items: center; gap: 26px; font-size: 14px; font-weight: bold; color: #756d61; }
-  .nav a:hover { color: var(--green); }
-  .nav-start { background: var(--green); color: white !important; padding: 10px 20px; border-radius: 30px; }
+<link rel="stylesheet" href="style.css"> <!-- [CSS 연결] 모양(색, 크기, 배치) style.css  -->
+<script src="main.js"></script>          <!-- [JS 연결] 동작(버튼)은 main.js -->
 
-  /* 💡 실습용 가이드 박스 디자인 */
-  .practice-box {
-    border: 2px dashed #a7cc6c;
-    background: #f7f9ee;
-    border-radius: 20px;
-    padding: 40px;
-    text-align: center;
-    color: #53483f;
-    margin: 20px 0;
-  }
-  .practice-box h3 { color: var(--deep); margin-bottom: 10px; font-size: 20px; }
-  .practice-box p { font-size: 14px; color: #8b8176; }
-
-  @media(max-width:800px) {
-    .nav { display: none; }
-  }
-</style>
 </head>
 <body>
 
@@ -78,40 +37,14 @@
     <!-- ==========================================
        [팀원 1 실습 구역] Hero & Stats
        ========================================== -->
-    <!-- 메인 -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div>
-        <span class="tag">💗 내 마음을 알아가는 작은 시작</span>
-        <h1>요즘 어때?<br><strong>너의 마음은<br>잘 지내고 있니?</strong></h1>
-        <p class="hero-text">하루하루 바쁘게 살아가다 보면<br>정작 내 마음을 돌볼 시간은 부족하죠.<br>마음한톨에서 잠시 나를 알아보는 시간을 가져봐요.<br>작은 실천 하나가 내일의 나를 바꿀 수 있어요.</p>
-        <div class="hero-buttons">
-          <a href="self.html" class="btn btn-primary">나를 아는 시간 시작하기 🌱</a>
-          <a href="#about" class="btn btn-secondary">마음한톨 알아보기</a>
+    <section class="section">
+      <div class="container">
+        <div class="practice-box">
+          <h3>[팀원 1] Hero & Stats 영역</h3>
+          <p>여기에 메인 비주얼(캐릭터 '톨이' 포함)과 상단 통계 바 코드를 직접 작성해 보세요!</p>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="speech">"안녕! 요즘 어때?" 💗<small>나는 네 마음 친구, 톨이야!</small></div>
-        <div class="toli" aria-label="새싹이 난 콩 캐릭터 톨이" role="img">
-          <div class="stem"></div>
-          <div class="leaf left"></div>
-          <div class="leaf right"></div>
-          <div class="toli-body">
-            <span class="eye left"></span>
-            <span class="eye right"></span>
-            <span class="cheek left"></span>
-            <span class="cheek right"></span>
-            <span class="mouth"></span>
-            <span class="hand left"></span>
-            <span class="hand right"></span>
-          </div>
-        </div>
-        <span class="float-heart">♥</span>
-        <p class="caption">오늘도 내 마음에 행복 한 톨 🫘</p>
-      </div>
-    </div>
-  </section>
- 
+    </section>
 
     <!-- ==========================================
        [팀원 2 실습 구역] About 섹션
@@ -148,7 +81,6 @@
     <section class="section" id="routines">
       <div class="container">
         <div class="section-heading">
-          <h3>[팀원 4] Routine (맞춤 루틴) 영역</h3>
           <p class="section-label">SMALL ROUTINE</p>
           <h2>내 고민에 맞는 작은 루틴</h2>
           <p>고민별 루틴을 미리 살펴봐요. 실제 추천은 문답을 끝낸 뒤에 받을 수 있어요.</p>
@@ -172,7 +104,9 @@
             <div class="task"><span> 한 달에 1만 원 모으기</span><b>매월</b></div>
           </div>
           <a href="self.html" class="btn btn-primary">나만의 루틴 추천받기 🌱</a>
-      </div>
+          </div>   <!-- routine-preview 닫기 -->
+      </div>     <!-- container 닫기 -->
+    </section>   <!-- 내 섹션 닫기 -->
 
 
 
