@@ -1,3 +1,17 @@
+// [강해일] 3 문답 카드 선택 인터랙션
+document.querySelectorAll("#answerList .answer-item").forEach(item => {
+  item.addEventListener("click", () => {
+    // 부모 안의 모든 답변 항목 초기화
+    document.querySelectorAll("#answerList .answer-item").forEach(el => {
+      el.classList.remove("bg-success-subtle", "border-success", "text-success", "fw-bold");
+      el.querySelector("span:last-child").textContent = "○";
+    });
+    
+    // 클릭한 항목만 활성화 스타일 적용
+    item.classList.add("bg-success-subtle", "border-success", "text-success", "fw-bold");
+    item.querySelector("span:last-child").textContent = "✓";
+  });
+});
 
 
 
