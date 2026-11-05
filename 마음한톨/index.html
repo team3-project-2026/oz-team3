@@ -12,7 +12,6 @@
 <title>마음한톨 | GNB 완성 & 실습 템플릿</title>
 
 <link rel="stylesheet" href="style.css"> <!-- [CSS 연결] 모양(색, 크기, 배치) style.css  -->
-<script src="main.js"></script>          <!-- [JS 연결] 동작(버튼)은 main.js -->
 
 </head>
 <body>
@@ -37,14 +36,103 @@
     <!-- ==========================================
        [팀원 1 실습 구역] Hero & Stats
        ========================================== -->
-    <section class="section">
-      <div class="container">
-        <div class="practice-box">
-          <h3>[팀원 1] Hero & Stats 영역</h3>
-          <p>여기에 메인 비주얼(캐릭터 '톨이' 포함)과 상단 통계 바 코드를 직접 작성해 보세요!</p>
+<!-- // ======================================== -->
+<!-- // 세션 1 시작: 메인 소개 -->
+<!-- // ======================================== -->
+
+<section id="section-1" class="section hero" aria-labelledby="hero-title">
+  <div class="container hero-inner">
+
+    <!-- // 왼쪽: 제목과 서비스 소개 시작 -->
+    <div class="hero-content">
+
+      <!-- // 작은 안내 문구 -->
+      <span class="tag">
+        💗 내 마음을 알아가는 작은 시작
+      </span>
+
+      <!-- // 메인 제목 -->
+      <h1 id="hero-title">
+        요즘 어때?<br>
+        <strong>
+          너의 마음은<br>
+          잘 지내고 있니?
+        </strong>
+      </h1>
+
+      <!-- // 소개 문구 -->
+      <p class="hero-text">
+        하루하루 바쁘게 살아가다 보면<br>
+        정작 내 마음을 돌볼 시간은 부족하죠.<br>
+        마음한톨에서 잠시 나를 알아보는 시간을 가져봐요.<br>
+        작은 실천 하나가 내일의 나를 바꿀 수 있어요.
+      </p>
+
+      <!-- // 이동 버튼 -->
+      <div class="hero-buttons">
+        <a href="#section-3" class="hero-btn hero-btn-primary">
+          나를 아는 시간 시작하기 🌱
+        </a>
+
+        <a href="#section-2" class="hero-btn hero-btn-secondary">
+          마음한톨 알아보기
+        </a>
+      </div>
+
+    </div>
+    <!-- // 왼쪽: 제목과 서비스 소개 끝 -->
+
+
+    <!-- // 오른쪽: 톨이 캐릭터 카드 시작 -->
+    <div class="hero-visual">
+
+      <!-- // 말풍선 -->
+      <div class="speech">
+        "안녕! 요즘 어때?" 💗
+        <small>나는 네 마음 친구, 톨이야!</small>
+      </div>
+
+      <!-- // CSS로 그리는 톨이 캐릭터 -->
+      <div
+        class="toli"
+        role="img"
+        aria-label="새싹이 난 콩 캐릭터 톨이"
+      >
+        <!-- // 새싹 -->
+        <div class="stem"></div>
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+
+        <!-- // 몸통과 얼굴 -->
+        <div class="toli-body">
+          <span class="eye left"></span>
+          <span class="eye right"></span>
+
+          <span class="cheek left"></span>
+          <span class="cheek right"></span>
+
+          <span class="mouth"></span>
+
+          <span class="hand left"></span>
+          <span class="hand right"></span>
         </div>
       </div>
-    </section>
+
+      <!-- // 장식용 하트 -->
+      <span class="float-heart" aria-hidden="true">♥</span>
+
+      <!-- // 캐릭터 아래 문구 -->
+      <p class="caption">
+        오늘도 내 마음에 행복 한 톨 🫘
+      </p>
+
+    </div>
+    <!-- // 오른쪽: 톨이 캐릭터 카드 끝 -->
+
+  </div>
+</section>
+
+<!-- // 세션 1 끝 -->
 
     <!-- ==========================================
        [팀원 2 실습 구역] About 섹션
@@ -145,5 +233,6 @@
     </div>
   </footer>
 
+  <script src="main.js"></script>   <!-- [JS 연결] 동작(버튼)은 main.js, body 맨 끝에서 불러오기 -->
 </body>
 </html>

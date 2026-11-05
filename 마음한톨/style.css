@@ -15,7 +15,7 @@ button { font: inherit; cursor: pointer; }
 .section.soft { background: #f7f9ee; }
 .section.pink { background: #fff6f3; }
 
-/* ==========================================
+/* ===================================
     [완성된 GNB(Header) 스타일]
 ========================================== */
 .header { position: sticky; top: 0; z-index: 50; background: #fffdf8ed; backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
@@ -89,3 +89,317 @@ margin: 20px 0;
   .routine-card { padding: 27px; }
   .routine-card h3 { font-size: 26px; }
 }
+=======
+/* // ======================================== */
+/* // 세션 1 CSS 시작: 메인 소개 */
+/* // ======================================== */
+
+/* // 전체 배경 */
+#section-1 {
+  padding: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 80% 20%, #f5e2dd 0, transparent 38%),
+    linear-gradient(135deg, #fff5ed, #f6f9e9);
+}
+
+/* // 왼쪽과 오른쪽을 두 칸으로 배치 */
+#section-1 .hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 45px;
+  min-height: 580px;
+  padding: 65px 0;
+}
+
+/* // 왼쪽 상단의 작은 안내 문구 */
+#section-1 .tag {
+  display: inline-block;
+  padding: 8px 18px;
+  margin-bottom: 22px;
+  border-radius: 30px;
+  background: white;
+  color: #8a8865;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* // 메인 제목 */
+#section-1 h1 {
+  margin: 0 0 22px;
+  font-size: clamp(35px, 4.5vw, 55px);
+  line-height: 1.35;
+  letter-spacing: -2px;
+}
+
+/* // 제목 안의 초록색 강조 문구 */
+#section-1 h1 strong {
+  color: #476b43;
+}
+
+/* // 소개 문구 */
+#section-1 .hero-text {
+  color: #80766d;
+  font-size: 16px;
+  line-height: 1.95;
+}
+
+/* // 버튼 두 개를 나란히 배치 */
+#section-1 .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+/* // 버튼 공통 모양 */
+#section-1 .hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+/* // 초록색 시작 버튼 */
+#section-1 .hero-btn-primary {
+  background: linear-gradient(135deg, #93bb64, #5b9b4b);
+  color: white;
+  box-shadow: 0 8px 18px #719b6033;
+}
+
+/* // 흰색 소개 버튼 */
+#section-1 .hero-btn-secondary {
+  background: white;
+  color: #476b43;
+  border-color: #d9e6cc;
+}
+
+/* // 버튼에 마우스를 올렸을 때 */
+#section-1 .hero-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* // 오른쪽 캐릭터 카드 */
+#section-1 .hero-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  padding: 25px;
+  border: 1px solid #f1e9da;
+  border-radius: 35px;
+  background: #ffffffb8;
+  box-shadow: 0 20px 45px #8c78551c;
+}
+
+/* // 말풍선 */
+#section-1 .speech {
+  margin-bottom: 20px;
+  padding: 15px 25px;
+  border-radius: 22px;
+  background: #fff6e7;
+  color: #655144;
+  font-size: 19px;
+  font-weight: 900;
+  text-align: center;
+}
+
+/* // 말풍선 안의 작은 설명 */
+#section-1 .speech small {
+  display: block;
+  margin-top: 3px;
+  color: #9c937f;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+/* // 톨이 캐릭터 전체 공간 */
+#section-1 .toli {
+  position: relative;
+  width: 165px;
+  height: 165px;
+  animation: hero-bob 2.7s ease-in-out infinite;
+}
+
+/* // 톨이 몸통 */
+#section-1 .toli-body {
+  position: absolute;
+  bottom: 5px;
+  left: 8px;
+  width: 148px;
+  height: 128px;
+  border: 4px solid #82694d;
+  border-radius: 53% 53% 45% 45%;
+  background: linear-gradient(#fff8df, #ffe7cc);
+  box-shadow: 0 9px 0 #c8db9c;
+}
+
+/* // 새싹 줄기 */
+#section-1 .stem {
+  position: absolute;
+  top: 0;
+  left: 78px;
+  width: 9px;
+  height: 49px;
+  border-radius: 10px;
+  background: #779f4c;
+}
+
+/* // 새싹 잎 공통 */
+#section-1 .leaf {
+  position: absolute;
+  top: 2px;
+  width: 49px;
+  height: 34px;
+  border: 3px solid #6c9345;
+  background: #a7cc6c;
+}
+
+#section-1 .leaf.left {
+  left: 30px;
+  border-radius: 90% 10% 90% 10%;
+  transform: rotate(20deg);
+}
+
+#section-1 .leaf.right {
+  right: 27px;
+  border-radius: 10% 90% 10% 90%;
+  transform: rotate(-20deg);
+}
+
+/* // 눈 */
+#section-1 .eye {
+  position: absolute;
+  top: 57px;
+  width: 11px;
+  height: 13px;
+  border-radius: 50%;
+  background: #5c4337;
+}
+
+#section-1 .eye.left { left: 42px; }
+#section-1 .eye.right { right: 42px; }
+
+/* // 볼 */
+#section-1 .cheek {
+  position: absolute;
+  top: 78px;
+  width: 26px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f6b1ac;
+}
+
+#section-1 .cheek.left { left: 20px; }
+#section-1 .cheek.right { right: 20px; }
+
+/* // 입 */
+#section-1 .mouth {
+  position: absolute;
+  top: 75px;
+  left: 62px;
+  width: 17px;
+  height: 14px;
+  border-bottom: 4px solid #86564a;
+  border-radius: 0 0 50% 50%;
+}
+
+/* // 손 */
+#section-1 .hand {
+  position: absolute;
+  bottom: 15px;
+  width: 30px;
+  height: 23px;
+  border: 3px solid #82694d;
+  border-radius: 50%;
+  background: #fff0d9;
+}
+
+#section-1 .hand.left {
+  left: 8px;
+  transform: rotate(-20deg);
+}
+
+#section-1 .hand.right {
+  right: 8px;
+  transform: rotate(20deg);
+}
+
+/* // 카드 오른쪽의 하트 */
+#section-1 .float-heart {
+  position: absolute;
+  top: 145px;
+  right: 50px;
+  color: #ef9e9e;
+  font-size: 29px;
+  animation: hero-bob 2s ease-in-out infinite;
+}
+
+/* // 캐릭터 아래 문구 */
+#section-1 .caption {
+  margin-top: 19px;
+  color: #748a5b;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* // 캐릭터가 천천히 위아래로 움직이는 효과 */
+@keyframes hero-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+/* // 작은 화면에서는 위아래로 배치 */
+@media (max-width: 800px) {
+  #section-1 .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 45px 0;
+    text-align: center;
+  }
+
+  #section-1 .hero-buttons {
+    justify-content: center;
+  }
+
+  #section-1 .hero-visual {
+    width: 100%;
+    max-width: 430px;
+    min-height: 350px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #section-1 h1 { font-size: 34px; }
+  #section-1 .hero-text { font-size: 14px; }
+}
+
+/* // 움직임 줄이기를 설정한 사용자에게 적용 */
+@media (prefers-reduced-motion: reduce) {
+  #section-1 .toli,
+  #section-1 .float-heart {
+    animation: none;
+  }
+
+  #section-1 .hero-btn {
+    transition: none;
+  }
+
+  #section-1 .hero-btn:hover {
+    transform: none;
+  }
+}
+
+/* // 세션 1 CSS 끝 */
