@@ -1,12 +1,26 @@
 /* ---------- 1. 공통 기본값 ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 :root {
-  --green: #78a75a; --deep: #476b43; --light: #edf6e6;
-  --cream: #fffcf5; --pink: #fff0ed; --ink: #53483f;
-  --muted: #8b8176; --line: #ebe5d9;
+  --green: #78a75a;
+  --deep: #476b43;
+  --light: #edf6e6;
+  --cream: #fffcf5;
+  --pink: #fff0ed;
+  --ink: #53483f;
+  --muted: #8b8176;
+  --line: #ebe5d9;
 }
+
 html { scroll-behavior: smooth; }
-body { font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; background: var(--cream); color: var(--ink); line-height: 1.7; }
+
+body {
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
 a { text-decoration: none; color: inherit; }
 button { font: inherit; cursor: pointer; }
 .container { width: min(1080px, 92%); margin: auto; }
@@ -14,49 +28,123 @@ button { font: inherit; cursor: pointer; }
 .section.soft { background: #f7f9ee; }
 .section.pink { background: #fff6f3; }
 
-/* ===================================
-    [완성된 GNB(Header) 스타일]
+
+/* ==========================================
+   [완성된 GNB(Header) 스타일]
 ========================================== */
-.header { position: sticky; top: 0; z-index: 50; background: #fffdf8ed; backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-.header-inner { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.logo { font-size: 26px; font-weight: 900; color: #695444; white-space: nowrap; }
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fffdf8ed;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 900;
+  color: #695444;
+  white-space: nowrap;
+}
+
 .logo span { color: var(--green); }
-.nav { display: flex; align-items: center; gap: 26px; font-size: 14px; font-weight: bold; color: #756d61; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #756d61;
+}
+
 .nav a:hover { color: var(--green); }
-.nav-start { background: var(--green); color: white !important; padding: 10px 20px; border-radius: 30px; }
+
+.nav-start {
+  background: var(--green);
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 30px;
+}
 
 
-/* 💡 실습용 가이드 박스 디자인 */
+/* // 실습용 가이드 박스 */
 .practice-box {
-border: 2px dashed #a7cc6c;
-background: #f7f9ee;
-border-radius: 20px;
-padding: 40px;
-text-align: center;
-color: #53483f;
-margin: 20px 0;
-}
-.practice-box h3 { color: var(--deep); margin-bottom: 10px; font-size: 20px; }
-.practice-box p { font-size: 14px; color: #8b8176; }
-
-@media(max-width:800px) {
-.nav { display: none; }
+  border: 2px dashed #a7cc6c;
+  background: #f7f9ee;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  color: #53483f;
+  margin: 20px 0;
 }
 
+.practice-box h3 {
+  color: var(--deep);
+  margin-bottom: 10px;
+  font-size: 20px;
+}
 
-/* ---------- 1. 여러 섹션이 같이 쓰는 것 (제목 묶음 section-heading, 초록 버튼 btn) --------- */
-.section-heading { text-align: center; margin-bottom: 35px; }
-.section-label { font-size: 12px; font-weight: 900; color: #8aa466; margin-bottom: 9px; }
-.section-heading h2 { font-size: 26px; color: #476b43; margin-bottom: 10px; }
-.section-heading p { font-size: 14px; color: #8b8176; }
+.practice-box p {
+  font-size: 14px;
+  color: #8b8176;
+}
 
-.btn { display: inline-block; padding: 14px 24px; border-radius: 40px; font-size: 14px; font-weight: 800; }
-.btn-primary { background: #78a75a; color: white; }
-.btn-primary:hover { background: #476b43; }   /* 마우스 호버 -> 진한 초록 */
-
+@media (max-width: 800px) {
+  .nav { display: none; }
+}
 
 
+/* ---------- 여러 섹션에서 함께 사용하는 스타일 ---------- */
+.section-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
 
+.section-label {
+  font-size: 12px;
+  font-weight: 900;
+  color: #8aa466;
+  margin-bottom: 9px;
+}
+
+.section-heading h2 {
+  font-size: 26px;
+  color: #476b43;
+  margin-bottom: 10px;
+}
+
+.section-heading p {
+  font-size: 14px;
+  color: #8b8176;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.btn-primary {
+  background: #78a75a;
+  color: white;
+}
+
+/* // 마우스를 올리면 진한 초록색 */
+.btn-primary:hover {
+  background: #476b43;
+}
 
 
 /* // ======================================== */
@@ -192,116 +280,20 @@ margin: 20px 0;
   font-weight: normal;
 }
 
-/* // 톨이 캐릭터 전체 공간 */
-#section-1 .toli {
-  position: relative;
-  width: 165px;
-  height: 165px;
-  animation: hero-bob 2.7s ease-in-out infinite;
+/* // 톨이 GIF를 담는 공간 */
+/* // width 값을 바꾸면 캐릭터 크기를 조절할 수 있어요. */
+#section-1 .toli-picture {
+  display: block;
+  width: 220px;
+  max-width: 100%;
 }
 
-/* // 톨이 몸통 */
-#section-1 .toli-body {
-  position: absolute;
-  bottom: 5px;
-  left: 8px;
-  width: 148px;
-  height: 128px;
-  border: 4px solid #82694d;
-  border-radius: 53% 53% 45% 45%;
-  background: linear-gradient(#fff8df, #ffe7cc);
-  box-shadow: 0 9px 0 #c8db9c;
-}
-
-/* // 새싹 줄기 */
-#section-1 .stem {
-  position: absolute;
-  top: 0;
-  left: 78px;
-  width: 9px;
-  height: 49px;
-  border-radius: 10px;
-  background: #779f4c;
-}
-
-/* // 새싹 잎 공통 */
-#section-1 .leaf {
-  position: absolute;
-  top: 2px;
-  width: 49px;
-  height: 34px;
-  border: 3px solid #6c9345;
-  background: #a7cc6c;
-}
-
-#section-1 .leaf.left {
-  left: 30px;
-  border-radius: 90% 10% 90% 10%;
-  transform: rotate(20deg);
-}
-
-#section-1 .leaf.right {
-  right: 27px;
-  border-radius: 10% 90% 10% 90%;
-  transform: rotate(-20deg);
-}
-
-/* // 눈 */
-#section-1 .eye {
-  position: absolute;
-  top: 57px;
-  width: 11px;
-  height: 13px;
-  border-radius: 50%;
-  background: #5c4337;
-}
-
-#section-1 .eye.left { left: 42px; }
-#section-1 .eye.right { right: 42px; }
-
-/* // 볼 */
-#section-1 .cheek {
-  position: absolute;
-  top: 78px;
-  width: 26px;
-  height: 14px;
-  border-radius: 50%;
-  background: #f6b1ac;
-}
-
-#section-1 .cheek.left { left: 20px; }
-#section-1 .cheek.right { right: 20px; }
-
-/* // 입 */
-#section-1 .mouth {
-  position: absolute;
-  top: 75px;
-  left: 62px;
-  width: 17px;
-  height: 14px;
-  border-bottom: 4px solid #86564a;
-  border-radius: 0 0 50% 50%;
-}
-
-/* // 손 */
-#section-1 .hand {
-  position: absolute;
-  bottom: 15px;
-  width: 30px;
-  height: 23px;
-  border: 3px solid #82694d;
-  border-radius: 50%;
-  background: #fff0d9;
-}
-
-#section-1 .hand.left {
-  left: 8px;
-  transform: rotate(-20deg);
-}
-
-#section-1 .hand.right {
-  right: 8px;
-  transform: rotate(20deg);
+/* // GIF를 원래 비율대로 표시 */
+/* // GIF 자체가 움직이므로 CSS 애니메이션은 필요하지 않아요. */
+#section-1 .toli-gif {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* // 카드 오른쪽의 하트 */
@@ -323,7 +315,7 @@ margin: 20px 0;
   text-align: center;
 }
 
-/* // 캐릭터가 천천히 위아래로 움직이는 효과 */
+/* // 장식용 하트가 천천히 위아래로 움직이는 효과 */
 @keyframes hero-bob {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-7px); }
@@ -351,13 +343,18 @@ margin: 20px 0;
 }
 
 @media (max-width: 480px) {
-  #section-1 h1 { font-size: 34px; }
-  #section-1 .hero-text { font-size: 14px; }
+  #section-1 h1 {
+    font-size: 34px;
+  }
+
+  #section-1 .hero-text {
+    font-size: 14px;
+  }
 }
 
 /* // 움직임 줄이기를 설정한 사용자에게 적용 */
+/* // GIF의 정지 이미지 전환은 HTML의 picture와 source가 담당합니다. */
 @media (prefers-reduced-motion: reduce) {
-  #section-1 .toli,
   #section-1 .float-heart {
     animation: none;
   }
@@ -374,38 +371,121 @@ margin: 20px 0;
 /* // 세션 1 CSS 끝 */
 
 
+/* ---------- 섹션 4. 차명진 (휴대폰 기준) ---------- */
 
-/* ---------- 섹션4. 차명진 (휴대폰 기준) ---------- */
+/* // 전체 배치: 휴대폰에서는 버튼 목록이 위, 카드가 아래 */
+.routine-preview {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
 
-/* [전체 배치 grid 사용] 휴대폰에서는 버튼 목록이 위, 카드가 아래 */
-.routine-preview { display: grid; grid-template-columns: 1fr; gap: 24px; }
+/* // 버튼 목록: 휴대폰에서는 2개씩 나란히 */
+.category {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 18px;
+  background: white;
+  border: 1px solid #ebe5d9;
+  border-radius: 23px;
+}
 
-/* [버튼 목록] 휴대폰에서는 2개씩 나란히 */
-.category { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 18px; background: white; border: 1px solid #ebe5d9; border-radius: 23px; }
-.category button { padding: 11px; font-size: 12px; font-weight: bold; text-align: left; color: #756c64; background: #faf9f5; border: 1px solid #faf9f5; border-radius: 13px; }
-.category button.active { color: #476b43; background: #eaf5e2; border-color: #9fc58a; }   /* JS가 붙였다 떼는 '선택됨' 모양 (Day15 classList) */
+.category button {
+  padding: 11px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+  color: #756c64;
+  background: #faf9f5;
+  border: 1px solid #faf9f5;
+  border-radius: 13px;
+}
+
+/* // JS가 붙였다 떼는 선택된 버튼 모양 */
+.category button.active {
+  color: #476b43;
+  background: #eaf5e2;
+  border-color: #9fc58a;
+}
+
+/* // 추천 카드 */
+.routine-card {
+  padding: 18px;
+  background: white;
+  border: 1px solid #ebe5d9;
+  border-radius: 25px;
+}
+
+.routine-card .small {
+  font-size: 12px;
+  font-weight: 900;
+  color: #87a16e;
+}
+
+.routine-card h3 {
+  margin: 8px 0;
+  font-size: 22px;
+  color: #476b43;
+}
+
+.routine-card .description {
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #8b8176;
+}
+
+.routine-card .btn {
+  margin-top: 15px;
+}
+
+/* // 할 일 한 줄: 왼쪽 글자와 오른쪽 주기 배지 */
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 16px;
+  font-size: 13px;
+  border: 1px solid #e9e8df;
+  border-radius: 14px;
+}
+
+.task b {
+  padding: 5px 10px;
+  font-size: 11px;
+  color: #739d59;
+  background: #edf5e5;
+  border-radius: 30px;
+}
 
 
-/* [추천 카드] */
-.routine-card { padding: 18px; background: white; border: 1px solid #ebe5d9; border-radius: 25px; }
-.routine-card .small { font-size: 12px; font-weight: 900; color: #87a16e; }
-.routine-card h3 { margin: 8px 0; font-size: 22px; color: #476b43; }
-.routine-card .description { margin-bottom: 20px; font-size: 13px; color: #8b8176; }
-.routine-card .btn { margin-top: 15px; }
-
-
-/* [할 일 한 줄, flex 사용] 왼쪽 글자 ↔ 오른쪽 주기 배지*/
-.task { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; padding: 16px; font-size: 13px; border: 1px solid #e9e8df; border-radius: 14px; }
-.task b { padding: 5px 10px; font-size: 11px; color: #739d59; background: #edf5e5; border-radius: 30px; }
-
-
-
-/* ---------- 3. 넓은 화면 (768px 이상) ---------- */
+/* ---------- 넓은 화면: 768px 이상 ---------- */
 @media (min-width: 768px) {
-  .section-heading h2 { font-size: 34px; }
-  .routine-preview { grid-template-columns: 280px 1fr; align-items: start; }
-  .category { grid-template-columns: 1fr; }
-  .category button { padding: 14px; font-size: 15px; }
-  .routine-card { padding: 27px; }
-  .routine-card h3 { font-size: 26px; }
+  .section-heading h2 {
+    font-size: 34px;
+  }
+
+  .routine-preview {
+    grid-template-columns: 280px 1fr;
+    align-items: start;
+  }
+
+  .category {
+    grid-template-columns: 1fr;
+  }
+
+  .category button {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .routine-card {
+    padding: 27px;
+  }
+
+  .routine-card h3 {
+    font-size: 26px;
+  }
 }

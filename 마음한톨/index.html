@@ -93,30 +93,22 @@
       </div>
 
       <!-- // CSS로 그리는 톨이 캐릭터 -->
-      <div
-        class="toli"
-        role="img"
-        aria-label="새싹이 난 콩 캐릭터 톨이"
-      >
-        <!-- // 새싹 -->
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
+      <!-- // GIF로 보여주는 톨이 캐릭터 -->
+<picture class="toli-picture">
+  <!-- // 움직임 줄이기를 설정한 기기에서는 정지 이미지 표시 -->
+  <source
+    srcset="./images/toli.png"
+    media="(prefers-reduced-motion: reduce)"
+  >
 
-        <!-- // 몸통과 얼굴 -->
-        <div class="toli-body">
-          <span class="eye left"></span>
-          <span class="eye right"></span>
-
-          <span class="cheek left"></span>
-          <span class="cheek right"></span>
-
-          <span class="mouth"></span>
-
-          <span class="hand left"></span>
-          <span class="hand right"></span>
-        </div>
-      </div>
+  <img
+    src="./images/toli.gif"
+    class="toli-gif"
+    width="320"
+    height="320"
+    alt="새싹이 난 콩 캐릭터 톨이"
+  >
+</picture>
 
       <!-- // 장식용 하트 -->
       <span class="float-heart" aria-hidden="true">♥</span>
