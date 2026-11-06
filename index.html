@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- // 세션 1 : 강성훈 
+// 세션 2 : 최혜연
+// 세션 3 : 강해일
+// 세션 4 : 차명진
+// 세션 5-6 : 박현주 -->
+
+<title>마음한톨 | GNB 완성 & 실습 템플릿</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css"> <!-- [CSS 연결] 모양(색, 크기, 배치) style.css  -->
+
+</head>
+<body>
+
+  <!-- ==========================================
+     [완료된 GNB 파트] Header & Navigation
+     ========================================== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">🌱 마음<span>한톨</span></a>
+      <nav class="nav">
+        <a href="#about">서비스 소개</a>
+        <a href="#questions">나를 아는 시간</a>
+        <a href="#routines">맞춤 루틴</a>
+        <a href="#growth">나의 성장</a>
+        <a href="self.html" class="nav-start">시작하기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================
+       [팀원 1 실습 구역] Hero & Stats
+       ========================================== -->
+<!-- // ======================================== -->
+<!-- // 세션 1 시작: 메인 소개 -->
+<!-- // ======================================== -->
+
+<section id="section-1" class="section hero" aria-labelledby="hero-title">
+  <div class="container hero-inner">
+
+    <!-- // 왼쪽: 제목과 서비스 소개 시작 -->
+    <div class="hero-content">
+
+      <!-- // 작은 안내 문구 -->
+      <span class="tag">
+        💗 내 마음을 알아가는 작은 시작
+      </span>
+
+      <!-- // 메인 제목 -->
+      <h1 id="hero-title">
+        요즘 어때?<br>
+        <strong>
+          너의 마음은<br>
+          잘 지내고 있니?
+        </strong>
+      </h1>
+
+      <!-- // 소개 문구 -->
+      <p class="hero-text">
+        하루하루 바쁘게 살아가다 보면<br>
+        정작 내 마음을 돌볼 시간은 부족하죠.<br>
+        마음한톨에서 잠시 나를 알아보는 시간을 가져봐요.<br>
+        작은 실천 하나가 내일의 나를 바꿀 수 있어요.
+      </p>
+
+      <!-- // 이동 버튼 -->
+      <div class="hero-buttons">
+        <a href="#section-3" class="hero-btn hero-btn-primary">
+          나를 아는 시간 시작하기 🌱
+        </a>
+
+        <a href="#section-2" class="hero-btn hero-btn-secondary">
+          마음한톨 알아보기
+        </a>
+      </div>
+
+    </div>
+    <!-- // 왼쪽: 제목과 서비스 소개 끝 -->
+
+
+    <!-- // 오른쪽: 톨이 캐릭터 카드 시작 -->
+    <div class="hero-visual">
+
+      <!-- // 말풍선 -->
+      <div class="speech">
+        "안녕! 요즘 어때?" 💗
+        <small>나는 네 마음 친구, 톨이야!</small>
+      </div>
+
+      <!-- // CSS로 그리는 톨이 캐릭터 -->
+      <div
+        class="toli"
+        role="img"
+        aria-label="새싹이 난 콩 캐릭터 톨이"
+      >
+        <!-- // 새싹 -->
+        <div class="stem"></div>
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+
+        <!-- // 몸통과 얼굴 -->
+        <div class="toli-body">
+          <span class="eye left"></span>
+          <span class="eye right"></span>
+
+          <span class="cheek left"></span>
+          <span class="cheek right"></span>
+
+          <span class="mouth"></span>
+
+          <span class="hand left"></span>
+          <span class="hand right"></span>
+        </div>
+      </div>
+
+      <!-- // 장식용 하트 -->
+      <span class="float-heart" aria-hidden="true">♥</span>
+
+      <!-- // 캐릭터 아래 문구 -->
+      <p class="caption">
+        오늘도 내 마음에 행복 한 톨 🫘
+      </p>
+
+    </div>
+    <!-- // 오른쪽: 톨이 캐릭터 카드 끝 -->
+
+  </div>
+</section>
+
+<!-- // 세션 1 끝 -->
+
+    <!-- ==========================================
+       [팀원 2 실습 구역] About 섹션
+       ========================================== -->
+    <section class="section soft" id="about">
+      <!-- 팀원 2 전용 디자인: 다른 팀원 스타일에는 영향을 주지 않아요. -->
+      <style>
+        #about { padding:85px 0; background:#f7f9ee; }
+        #about .container { width:min(1080px,92%); max-width:1080px; margin:0 auto; }
+        #about .section-heading { text-align:center; margin-bottom:35px; }
+        #about .section-label { font-size:12px; font-weight:900; color:#8aa466; letter-spacing:2px; margin-bottom:9px; }
+        #about .section-heading h2 { font-size:clamp(25px,3vw,34px); font-weight:800; color:#476b43; margin-bottom:10px; }
+        #about .section-heading p { font-size:14px; color:#8b8176; margin-bottom:0; }
+        #about .steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:17px; }
+        #about .step-card { min-width:0; min-height:210px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#fff; border:1px solid #ebe5d9; border-radius:25px; padding:28px 18px; text-align:center; box-shadow:0 6px 20px #7a89620e; transition:transform .2s,box-shadow .2s; }
+        #about .step-card:hover { transform:translateY(-5px); box-shadow:0 12px 25px #7a896226; }
+        #about .step-icon { font-size:45px; line-height:1.3; margin-bottom:13px; }
+        #about .step-card small { display:block; font-size:11px; font-weight:bold; color:#9cab84; }
+        #about .step-card h3 { margin:8px 0; font-size:17px; font-weight:800; color:#53483f; }
+        #about .step-card p { margin:0; font-size:12px; color:#8b8176; line-height:1.8; }
+        @media (max-width:800px) {
+          #about { padding:60px 0; }
+          #about .steps { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        }
+        @media (max-width:480px) {
+          #about .steps { grid-template-columns:1fr; }
+        }
+      </style>
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">ABOUT MAEUMHANTOL</p>
+          <h2>마음한톨은 어떤 서비스일까요?</h2>
+          <p>나를 이해하는 질문에서 시작해 작은 습관을 만들어가는 공간이에요.</p>
+        </div>
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-icon">💗</div>
+            <small>STEP 01</small>
+            <h3>내 마음 알아보기</h3>
+            <p>요즘 어떤 기분인지,<br>무엇이 힘든지 질문에 답해요.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">🌷</div>
+            <small>STEP 02</small>
+            <h3>나에게 필요한 것</h3>
+            <p>내가 원하는 행복과<br>지금 필요한 것을 찾아요.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">✅</div>
+            <small>STEP 03</small>
+            <h3>작은 루틴 실천</h3>
+            <p>내 고민에 맞는<br>실천을 하나씩 시작해요.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">🌱</div>
+            <small>STEP 04</small>
+            <h3>한 톨씩 성장</h3>
+            <p>루틴을 체크하고<br>톨이와 함께 자라나요.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+       [팀원 3 실습 구역] Question 섹션
+       ========================================== -->
+    <section class="py-5" id="questions">
+      <div class="container py-4">
+        <div class="row align-items-center g-5">
+    
+          <!-- 왼쪽 인트로 텍스트 -->
+          <div class="col-lg-6">
+            <span class="badge bg-light text-success fw-bold px-3 py-2 rounded-pill mb-3">TIME TO KNOW MYSELF</span>
+            <h2 class="fw-bold text-success-emphasis mb-3" style="color: #476b43; font-size: clamp(25px, 3vw, 34px);">
+              나를 아는 시간,<br>질문 하나부터 시작해요.
+            </h2>
+            <p class="text-muted mb-4" style="font-size: 14px; line-height: 1.8;">
+              어려운 심리검사가 아니에요.<br>
+              톨이의 질문에 마음에 드는 답을 체크하면 자동으로 다음 질문으로 넘어가요.<br>
+              모든 질문에는 정답이 없어요.
+            </p>
+            <a href="#" class="btn btn-success rounded-pill px-4 py-3 fw-bold shadow-sm">톨이와 문답 시작하기 💗</a>
+          </div>
+    
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-lg p-4 rounded-4">
+              <p class="text-success fw-bold small mb-2">🫘 톨이의 첫 번째 질문</p>
+              <h3 class="fs-4 fw-bold mb-4">요즘 어때?</h3>
+    
+              <div class="d-flex flex-column gap-2" id="answerList">
+                <div
+                  class="answer-item p-3 border rounded-3 d-flex justify-content-between align-items:center cursor-pointer"
+                  role="button">
+                  <span>😊 행복한 편이야</span> <span class="text-success">○</span>
+                </div>
+                <div
+                  class="answer-item p-3 border rounded-3 d-flex justify-content-between align-items-center cursor-pointer"
+                  role="button">
+                  <span>🙂 그냥저냥 지내</span> <span class="text-success">○</span>
+                </div>
+                <div
+                  class="answer-item p-3 border rounded-3 d-flex justify-content-between align-items:center active-answer bg-success-subtle border-success text-success fw-bold"
+                  role="button">
+                  <span>😮💨 조금 지쳤어</span> <span class="text-success">✓</span>
+                </div>
+                <div
+                  class="answer-item p-3 border rounded-3 d-flex justify-content-between align-items:center cursor-pointer"
+                  role="button">
+                  <span>😟 걱정이 많아</span> <span class="text-success">○</span>
+                </div>
+                <div
+                  class="answer-item p-3 border rounded-3 d-flex justify-content-between align-items:center cursor-pointer"
+                  role="button">
+                  <span>🤍 잘 모르겠어</span> <span class="text-success">○</span>
+                </div>
+              </div>
+    
+              <p class="text-center text-muted small mt-4 mb-0">이 화면은 문답 미리보기예요 🌱</p>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+       [팀원 4 차명진] Routine 섹션
+       ========================================== -->
+    <section class="section" id="routines">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">SMALL ROUTINE</p>
+          <h2>내 고민에 맞는 작은 루틴</h2>
+          <p>고민별 루틴을 미리 살펴봐요. 실제 추천은 문답을 끝낸 뒤에 받을 수 있어요.</p>
+        </div>
+      <div class="routine-preview">
+        <div class="category">
+          <button class="active" id="btn-money"> 돈과 생활 </button>
+          <button id="btn-job"> 취업과 진로 </button>
+          <button id="btn-love"> 인간관계 </button> 
+          <button id="btn-future"> 미래 걱정 </button>
+          <button id="btn-rest"> 피로와 휴식 </button>
+        </div>
+        <div class="routine-card">
+          <p class="small"> 톨이의 추천 루틴 미리보기</p>
+          <h3 id="planTitle">티끌 모아 태산</h3>
+          <p class="description" id="planDescription">돈 때문에 힘들다면 작은 소비 기록부터 시작해보자.</p>
+          <div id="planTasks">
+            <div class="task"><span> 오늘 쓴 돈 한 가지 기록하기</span><b>매일</b></div>
+            <div class="task"><span> 이번 주 지출 돌아보기</span><b>매주</b></div>
+            <div class="task"><span> 한 달에 1만 원 모으기</span><b>매월</b></div>
+          </div>
+          <a href="self.html" class="btn btn-primary">나만의 루틴 추천받기 🌱</a>
+        </div>   <!-- routine-card 닫기 -->
+      </div>     <!-- routine-preview 닫기 -->
+      </div>     <!-- container 닫기 -->
+    </section>
+
+    <!-- ==========================================
+       [팀원 5 실습 구역] Growth 섹션
+       ========================================== -->
+    <section class="section" id="growth">
+      <div class="container">
+        <div class="practice-box">
+          <h3>[팀원 5] Growth (콩병 성장 비주얼) 영역</h3>
+          <p>여기에 콩병 및 성장 단계 시각화 코드와 데이터 연동 로직을 작성해 보세요!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 하단 CTA 섹션 -->
+    <section class="section pink">
+      <div class="container">
+        <div class="practice-box" style="background: #fff6f3; border-color: #ef9e9e;">
+          <h3>[팀원 5] Finish (하단 시작하기 배너) 영역</h3>
+          <p>여기에 하단 시작하기 CTA 배너 코드를 직접 작성해 보세요!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 영역 -->
+  <footer class="footer">
+    <div class="container" style="padding: 20px 0; text-align: center; color: #999084; font-size: 12px;">
+      <p>[팀원 5] 푸터 영역 코드를 여기에 작성해 보세요.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>   <!-- [JS 연결] 동작(버튼)은 main.js, body 맨 끝에서 불러오기 -->
+</body>
+</html>
