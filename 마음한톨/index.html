@@ -129,11 +129,61 @@
     <!-- ==========================================
        [팀원 2 실습 구역] About 섹션
        ========================================== -->
-    <section class="section soft" id="about">
+   <section class="section soft" id="about">
+      
+      <style>
+        #about { padding:85px 0; background:#f7f9ee; }
+        #about .container { width:min(1080px,92%); max-width:1080px; margin:0 auto; }
+        #about .section-heading { text-align:center; margin-bottom:35px; }
+        #about .section-label { font-size:12px; font-weight:900; color:#8aa466; letter-spacing:2px; margin-bottom:9px; }
+        #about .section-heading h2 { font-size:clamp(25px,3vw,34px); font-weight:800; color:#476b43; margin-bottom:10px; }
+        #about .section-heading p { font-size:14px; color:#8b8176; margin-bottom:0; }
+        #about .steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:17px; }
+        #about .step-card { min-width:0; min-height:210px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#fff; border:1px solid #ebe5d9; border-radius:25px; padding:28px 18px; text-align:center; box-shadow:0 6px 20px #7a89620e; transition:transform .2s,box-shadow .2s; }
+        #about .step-card:hover { transform:translateY(-5px); box-shadow:0 12px 25px #7a896226; }
+        #about .step-icon { font-size:45px; line-height:1.3; margin-bottom:13px; }
+        #about .step-card small { display:block; font-size:11px; font-weight:bold; color:#9cab84; }
+        #about .step-card h3 { margin:8px 0; font-size:17px; font-weight:800; color:#53483f; }
+        #about .step-card p { margin:0; font-size:12px; color:#8b8176; line-height:1.8; }
+        @media (max-width:800px) {
+          #about { padding:60px 0; }
+          #about .steps { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        }
+        @media (max-width:480px) {
+          #about .steps { grid-template-columns:1fr; }
+        }
+      </style>
       <div class="container">
-        <div class="practice-box">
-          <h3>[팀원 2] About (서비스 소개) 영역</h3>
-          <p>여기에 서비스 소개 4단계 카드(STEP 01 ~ 04) 코드를 직접 작성해 보세요!</p>
+        <div class="section-heading">
+          <p class="section-label">ABOUT MAEUMHANTOL</p>
+          <h2>마음한톨은 어떤 서비스일까요?</h2>
+          <p>나를 이해하는 질문에서 시작해 작은 습관을 만들어가는 공간이에요.</p>
+        </div>
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-icon">💗</div>
+            <small>STEP 01</small>
+            <h3>내 마음 알아보기</h3>
+            <p>요즘 어떤 기분인지,<br>무엇이 힘든지 질문에 답해요.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">🌷</div>
+            <small>STEP 02</small>
+            <h3>나에게 필요한 것</h3>
+            <p>내가 원하는 행복과<br>지금 필요한 것을 찾아요.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">✅</div>
+            <small>STEP 03</small>
+            <h3>작은 루틴 실천</h3>
+            <p>내 고민에 맞는<br>실천을 하나씩 시작해요.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">🌱</div>
+            <small>STEP 04</small>
+            <h3>한 톨씩 성장</h3>
+            <p>루틴을 체크하고<br>톨이와 함께 자라나요.</p>
+          </div>
         </div>
       </div>
     </section>
