@@ -119,3 +119,135 @@ routinePlans.forEach((plan) => {
     showRoutine(plan);             // 2) 카드 내용 바꾸기
   });
 });
+
+// ==========================================
+// [세션 5] Growth 영역: 콩병 시각화 및 로컬 스토리지 연동
+// ==========================================
+function initSession5() {
+  let total = 0;
+  let completed = {};
+
+  try {
+    const data = JSON.parse(localStorage.getItem("maeumhantol_v2"));
+    if (data && typeof data === "object") {
+      completed = data.completed && typeof data.completed === "object" ? data.completed : {};
+      total = (Number(data.legacyBeans) || 0) + Object.values(completed).filter(Boolean).length;
+    } else {
+      const old = JSON.parse(localStorage.getItem("maeumhantol_beans_v1"));
+      total = Number(old?.total) || 0;
+    }
+  } catch (error) {
+    console.log("저장된 데이터 로드 중 참고사항: 기본 0톨로 시작합니다.");
+  }
+
+  // 기본 시각화 테스트용 (저장된 데이터가 없으면 8톨을 기본 렌더링)
+  if (total === 0) total = 8;
+
+  // 1. 텍스트 업데이트
+  const jarTotalEl = document.getElementById("jarTotal");
+  if (jarTotalEl) {
+    jarTotalEl.textContent = `지금까지 ${total}톨 🫘`;
+  }
+
+  // 2. 콩병 안의 콩 그래픽 동적 생성
+  const jarBeansEl = document.getElementById("jarBeans");
+  if (jarBeansEl) {
+    jarBeansEl.replaceChildren(); // 기존 콩 지우기
+    
+    // 최대 24개까지 콩병 안에 콩(span.bean)을 렌더링
+    const renderCount = Math.min(total, 24);
+    for (let i = 0; i < renderCount; i++) {
+      const bean = document.createElement("span");
+      bean.className = "bean";
+      jarBeansEl.appendChild(bean);
+    }
+  }
+}
+
+// 문서가 로드되면 세션 5 초기화 실행
+document.addEventListener("DOMContentLoaded", initSession5);
+window.addEventListener("pageshow", initSession5);
+
+// ==========================================
+// [세션 5] 흙 속 씨앗과 식물 성장 인터랙션
+// ==========================================
+const stageData = {
+  bean: {
+    title: "씨앗 단계 🌱",
+    caption: "마음의 흙에 작은 씨앗을 심고 첫걸음을 시작했어요.",
+    render: (container) => {
+      container.className = "jar-content stage-bean";
+      for (let i = 0; i < 3; i++) {
+        const seed = document.createElement("div");
+        seed.className = "seed-item";
+        container.appendChild(seed);
+      }
+    }
+  },
+  sprout: {
+    title: "새싹 단계 🌱",
+    caption: "흙 속에서 영양분을 먹고 예쁜 새싹이 텄어요!",
+    render: (container) => {
+      container.className = "jar-content stage-sprout";
+      container.innerHTML = `
+        <div class="plant-wrap">
+          <div class="plant-icon">🌱</div>
+          <div class="stem"></div>
+        </div>
+      `;
+    }
+  },
+  leaf: {
+    title: "잎 단계 🌿",
+    caption: "정성 어린 실천으로 초록 잎이 무성해졌어요.",
+    render: (container) => {
+      container.className = "jar-content stage-leaf";
+      container.innerHTML = `
+        <div class="plant-wrap">
+          <div class="plant-icon">🌿</div>
+          <div class="stem"></div>
+        </div>
+      `;
+    }
+  },
+  flower: {
+    title: "꽃 단계 🌸",
+    caption: "아름다운 꽃이 활짝 피어났어요! 정말 멋져요.",
+    render: (container) => {
+      container.className = "jar-content stage-flower";
+      container.innerHTML = `
+        <div class="plant-wrap">
+          <div class="plant-icon">🌸</div>
+          <div class="stem"></div>
+        </div>
+      `;
+    }
+  }
+};
+
+const stageCards = document.querySelectorAll(".growth-item[data-stage]");
+const jarContent = document.getElementById("jarContent");
+const jarTotal = document.getElementById("jarTotal");
+const jarCaption = document.getElementById("jarCaption");
+
+// 초기 실행 (기본 '씨앗' 단계로 세팅)
+if (jarContent) {
+  stageData.bean.render(jarContent);
+}
+
+// 각 성장 카드 클릭 이벤트 연결
+stageCards.forEach(card => {
+  card.addEventListener("click", () => {
+    stageCards.forEach(c => c.classList.remove("active-stage"));
+    card.classList.add("active-stage");
+
+    const stageKey = card.getAttribute("data-stage");
+    const currentStage = stageData[stageKey];
+
+    if (currentStage && jarContent) {
+      jarTotal.textContent = currentStage.title;
+      jarCaption.textContent = currentStage.caption;
+      currentStage.render(jarContent);
+    }
+  });
+});

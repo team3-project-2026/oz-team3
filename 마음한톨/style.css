@@ -1,5 +1,9 @@
 /* ---------- 1. 공통 기본값 ---------- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
   --green: #78a75a;
@@ -12,7 +16,9 @@
   --line: #ebe5d9;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
@@ -21,12 +27,32 @@ body {
   line-height: 1.7;
 }
 
-a { text-decoration: none; color: inherit; }
-button { font: inherit; cursor: pointer; }
-.container { width: min(1080px, 92%); margin: auto; }
-.section { padding: 85px 0; }
-.section.soft { background: #f7f9ee; }
-.section.pink { background: #fff6f3; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.container {
+  width: min(1080px, 92%);
+  margin: auto;
+}
+
+.section {
+  padding: 85px 0;
+}
+
+.section.soft {
+  background: #f7f9ee;
+}
+
+.section.pink {
+  background: #fff6f3;
+}
 
 
 /* ==========================================
@@ -56,7 +82,9 @@ button { font: inherit; cursor: pointer; }
   white-space: nowrap;
 }
 
-.logo span { color: var(--green); }
+.logo span {
+  color: var(--green);
+}
 
 .nav {
   display: flex;
@@ -67,7 +95,9 @@ button { font: inherit; cursor: pointer; }
   color: #756d61;
 }
 
-.nav a:hover { color: var(--green); }
+.nav a:hover {
+  color: var(--green);
+}
 
 .nav-start {
   background: var(--green);
@@ -100,7 +130,9 @@ button { font: inherit; cursor: pointer; }
 }
 
 @media (max-width: 800px) {
-  .nav { display: none; }
+  .nav {
+    display: none;
+  }
 }
 
 
@@ -141,17 +173,14 @@ button { font: inherit; cursor: pointer; }
   color: white;
 }
 
-/* // 마우스를 올리면 진한 초록색 */
 .btn-primary:hover {
   background: #476b43;
 }
 
 
-/* // ======================================== */
-/* // 세션 1 CSS 시작: 메인 소개 */
-/* // ======================================== */
-
-/* // 전체 배경 */
+/* ==========================================
+   [세션 1] 메인 소개 스타일
+========================================== */
 #section-1 {
   padding: 0;
   overflow: hidden;
@@ -160,7 +189,6 @@ button { font: inherit; cursor: pointer; }
     linear-gradient(135deg, #fff5ed, #f6f9e9);
 }
 
-/* // 왼쪽과 오른쪽을 두 칸으로 배치 */
 #section-1 .hero-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -170,7 +198,6 @@ button { font: inherit; cursor: pointer; }
   padding: 65px 0;
 }
 
-/* // 왼쪽 상단의 작은 안내 문구 */
 #section-1 .tag {
   display: inline-block;
   padding: 8px 18px;
@@ -182,7 +209,6 @@ button { font: inherit; cursor: pointer; }
   font-weight: bold;
 }
 
-/* // 메인 제목 */
 #section-1 h1 {
   margin: 0 0 22px;
   font-size: clamp(35px, 4.5vw, 55px);
@@ -190,19 +216,16 @@ button { font: inherit; cursor: pointer; }
   letter-spacing: -2px;
 }
 
-/* // 제목 안의 초록색 강조 문구 */
 #section-1 h1 strong {
   color: #476b43;
 }
 
-/* // 소개 문구 */
 #section-1 .hero-text {
   color: #80766d;
   font-size: 16px;
   line-height: 1.95;
 }
 
-/* // 버튼 두 개를 나란히 배치 */
 #section-1 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -210,7 +233,6 @@ button { font: inherit; cursor: pointer; }
   margin-top: 30px;
 }
 
-/* // 버튼 공통 모양 */
 #section-1 .hero-btn {
   display: inline-flex;
   align-items: center;
@@ -225,26 +247,22 @@ button { font: inherit; cursor: pointer; }
   transition: transform 0.2s;
 }
 
-/* // 초록색 시작 버튼 */
 #section-1 .hero-btn-primary {
   background: linear-gradient(135deg, #93bb64, #5b9b4b);
   color: white;
   box-shadow: 0 8px 18px #719b6033;
 }
 
-/* // 흰색 소개 버튼 */
 #section-1 .hero-btn-secondary {
   background: white;
   color: #476b43;
   border-color: #d9e6cc;
 }
 
-/* // 버튼에 마우스를 올렸을 때 */
 #section-1 .hero-btn:hover {
   transform: translateY(-3px);
 }
 
-/* // 오른쪽 캐릭터 카드 */
 #section-1 .hero-visual {
   position: relative;
   display: flex;
@@ -259,7 +277,6 @@ button { font: inherit; cursor: pointer; }
   box-shadow: 0 20px 45px #8c78551c;
 }
 
-/* // 말풍선 */
 #section-1 .speech {
   margin-bottom: 20px;
   padding: 15px 25px;
@@ -271,7 +288,6 @@ button { font: inherit; cursor: pointer; }
   text-align: center;
 }
 
-/* // 말풍선 안의 작은 설명 */
 #section-1 .speech small {
   display: block;
   margin-top: 3px;
@@ -280,23 +296,18 @@ button { font: inherit; cursor: pointer; }
   font-weight: normal;
 }
 
-/* // 톨이 GIF를 담는 공간 */
-/* // width 값을 바꾸면 캐릭터 크기를 조절할 수 있어요. */
 #section-1 .toli-picture {
   display: block;
   width: 220px;
   max-width: 100%;
 }
 
-/* // GIF를 원래 비율대로 표시 */
-/* // GIF 자체가 움직이므로 CSS 애니메이션은 필요하지 않아요. */
 #section-1 .toli-gif {
   display: block;
   width: 100%;
   height: auto;
 }
 
-/* // 카드 오른쪽의 하트 */
 #section-1 .float-heart {
   position: absolute;
   top: 145px;
@@ -306,7 +317,6 @@ button { font: inherit; cursor: pointer; }
   animation: hero-bob 2s ease-in-out infinite;
 }
 
-/* // 캐릭터 아래 문구 */
 #section-1 .caption {
   margin-top: 19px;
   color: #748a5b;
@@ -315,72 +325,28 @@ button { font: inherit; cursor: pointer; }
   text-align: center;
 }
 
-/* // 장식용 하트가 천천히 위아래로 움직이는 효과 */
 @keyframes hero-bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-7px); }
-}
 
-/* // 작은 화면에서는 위아래로 배치 */
-@media (max-width: 800px) {
-  #section-1 .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 45px 0;
-    text-align: center;
+  0%,
+  100% {
+    transform: translateY(0);
   }
 
-  #section-1 .hero-buttons {
-    justify-content: center;
-  }
-
-  #section-1 .hero-visual {
-    width: 100%;
-    max-width: 430px;
-    min-height: 350px;
-    margin: auto;
+  50% {
+    transform: translateY(-7px);
   }
 }
 
-@media (max-width: 480px) {
-  #section-1 h1 {
-    font-size: 34px;
-  }
 
-  #section-1 .hero-text {
-    font-size: 14px;
-  }
-}
-
-/* // 움직임 줄이기를 설정한 사용자에게 적용 */
-/* // GIF의 정지 이미지 전환은 HTML의 picture와 source가 담당합니다. */
-@media (prefers-reduced-motion: reduce) {
-  #section-1 .float-heart {
-    animation: none;
-  }
-
-  #section-1 .hero-btn {
-    transition: none;
-  }
-
-  #section-1 .hero-btn:hover {
-    transform: none;
-  }
-}
-
-/* // 세션 1 CSS 끝 */
-
-
-/* ---------- 섹션 4. 차명진 (휴대폰 기준) ---------- */
-
-/* // 전체 배치: 휴대폰에서는 버튼 목록이 위, 카드가 아래 */
+/* ==========================================
+   [세션 4] 맞춤 루틴 스타일
+========================================== */
 .routine-preview {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
 }
 
-/* // 버튼 목록: 휴대폰에서는 2개씩 나란히 */
 .category {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -402,14 +368,12 @@ button { font: inherit; cursor: pointer; }
   border-radius: 13px;
 }
 
-/* // JS가 붙였다 떼는 선택된 버튼 모양 */
 .category button.active {
   color: #476b43;
   background: #eaf5e2;
   border-color: #9fc58a;
 }
 
-/* // 추천 카드 */
 .routine-card {
   padding: 18px;
   background: white;
@@ -439,7 +403,6 @@ button { font: inherit; cursor: pointer; }
   margin-top: 15px;
 }
 
-/* // 할 일 한 줄: 왼쪽 글자와 오른쪽 주기 배지 */
 .task {
   display: flex;
   justify-content: space-between;
@@ -461,7 +424,278 @@ button { font: inherit; cursor: pointer; }
 }
 
 
-/* ---------- 넓은 화면: 768px 이상 ---------- */
+/* ==========================================
+   [세션 5] 흙이 담긴 병과 식물 성장 인터랙션 스타일
+========================================== */
+.jar-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.jar-wrapper {
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 32px 22px;
+}
+
+.jar-lid {
+  width: 175px;
+  height: 32px;
+  margin: 0 auto -4px;
+  border-radius: 14px;
+  background: linear-gradient(#b28b62, #8b6547);
+  position: relative;
+  z-index: 2;
+}
+
+.jar {
+  width: 230px;
+  height: 255px;
+  margin: auto;
+  border: 9px solid #b8d3c1;
+  border-top-width: 15px;
+  border-radius: 24px 24px 55px 55px;
+  background: linear-gradient(110deg, #e4f5ef88, #ffffff66, #c9e7da77);
+  box-shadow: inset 10px 0 15px #ffffff99;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 병 내부 흙 레이어 */
+.jar-soil {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  background: linear-gradient(180deg, #9c734b, #704b28);
+  border-radius: 0 0 45px 45px;
+  z-index: 1;
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 흙 위에서 자라나는 식물 컨테이너 */
+.jar-content {
+  position: absolute;
+  bottom: 45px;
+  left: 15px;
+  right: 15px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+/* 1단계: 흙 속에 심긴 씨앗들 스타일 */
+.jar-content.stage-bean {
+  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+  padding-bottom: 5px;
+}
+
+.jar-content.stage-bean .seed-item {
+  width: 22px;
+  height: 16px;
+  background: #8b5a2b;
+  border-radius: 50%;
+  box-shadow: inset -2px -2px rgba(0, 0, 0, 0.3);
+  animation: popIn 0.3s ease-out;
+}
+
+/* 공통 식물 성장 애니메이션 래퍼 */
+.plant-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: plantGrow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: bottom;
+}
+
+/* 단계별 줄기와 아이콘 */
+.jar-content.stage-sprout .stem {
+  width: 5px;
+  height: 50px;
+  background: #779f4c;
+  border-radius: 3px;
+}
+
+.jar-content.stage-sprout .plant-icon {
+  font-size: 34px;
+  margin-bottom: -10px;
+}
+
+.jar-content.stage-leaf .stem {
+  width: 7px;
+  height: 85px;
+  background: #628f3a;
+  border-radius: 4px;
+}
+
+.jar-content.stage-leaf .plant-icon {
+  font-size: 50px;
+  margin-bottom: -14px;
+}
+
+.jar-content.stage-flower .stem {
+  width: 8px;
+  height: 110px;
+  background: #53802b;
+  border-radius: 4px;
+}
+
+.jar-content.stage-flower .plant-icon {
+  font-size: 62px;
+  margin-bottom: -18px;
+}
+
+.jar-total {
+  margin-top: 18px;
+  color: var(--deep);
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.jar-caption {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.growth h2 {
+  font-size: 32px;
+  color: var(--deep);
+  margin-bottom: 15px;
+}
+
+.growth p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+}
+
+.growth-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 25px 0;
+}
+
+.growth-item {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 14px 7px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.growth-item:hover {
+  transform: translateY(-3px);
+  border-color: #9fc58a;
+}
+
+.growth-item.active-stage {
+  background: #eaf5e2;
+  border-color: #78a75a;
+  box-shadow: 0 4px 12px rgba(120, 167, 90, 0.2);
+}
+
+.growth-item .emoji {
+  display: block;
+  font-size: 31px;
+  margin-bottom: 5px;
+}
+
+.growth-item strong {
+  display: block;
+  font-size: 12px;
+}
+
+.growth-item small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes plantGrow {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+
+/* ==========================================
+   [세션 6] Finish (하단 배너) 및 Footer 스타일
+========================================== */
+.finish {
+  background: linear-gradient(130deg, #eaf5da, #fff0ea);
+  border-radius: 34px;
+  text-align: center;
+  padding: 65px 20px;
+}
+
+.finish .emoji {
+  font-size: 65px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.finish h2 {
+  font-size: 31px;
+  color: var(--deep);
+  margin-bottom: 13px;
+}
+
+.finish p {
+  color: #80776e;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.footer {
+  padding: 35px 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: #999084;
+  font-size: 12px;
+  background: var(--cream);
+}
+
+.footer strong {
+  display: block;
+  color: var(--deep);
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+
+/* ---------- 미디어 쿼리 (반응형) ---------- */
 @media (min-width: 768px) {
   .section-heading h2 {
     font-size: 34px;
@@ -487,5 +721,15 @@ button { font: inherit; cursor: pointer; }
 
   .routine-card h3 {
     font-size: 26px;
+  }
+}
+
+@media (max-width: 800px) {
+  .jar-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .finish {
+    padding: 45px 15px;
   }
 }
