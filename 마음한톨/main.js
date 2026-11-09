@@ -179,8 +179,9 @@ const stageData = {
       container.className = "jar-content stage-bean";
       for (let i = 0; i < 3; i++) {
         const seed = document.createElement("div");
-        seed.className = "seed-item";
-        container.appendChild(seed);
+seed.className = "seed-item";
+seed.style.background = 'url("./images/mini-bean.png") center / contain no-repeat';
+container.appendChild(seed);
       }
     }
   },

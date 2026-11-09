@@ -733,3 +733,18 @@ button {
     padding: 45px 15px;
   }
 }
+#jarBeans .bean {
+  width: 30px;
+  height: 30px;
+  background: url("./images/mini-bean.png") center / contain no-repeat !important;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.stage-bean .seed-item {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
